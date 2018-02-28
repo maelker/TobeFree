@@ -1,0 +1,9 @@
+CREATE TABLE `membres` (
+  `ID` int(11) NOT NULL auto_increment,
+  `pseudo` varchar(100) NOT NULL,
+  `pass` varchar(100) character set utf8 collate utf8_bin NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_enregistrement` datetime NOT NULL,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `pseudo` (`pseudo`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
