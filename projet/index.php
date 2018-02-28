@@ -8,10 +8,8 @@ $smarty = new Smarty();
 $url = '';
 if(isset($_GET['url'])) {
     $url = explode('/',$_GET['url']);
-
 }
 // var_dump($url);   //DEBUG
-
 
 if($url == '') {
 	require 'sources/accueil/page_accueil.html';	
@@ -28,6 +26,5 @@ if($url == '') {
 } elseif($url[0]=='information') {
 		$smarty->display("sources/info/information.html");
 }
-
 
 ?>
