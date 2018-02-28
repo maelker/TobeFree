@@ -1,0 +1,26 @@
+
+https://github.com/maelker/TobeFree
+
+login:    maelker
+password: 2beFree
+
+Main line command:
+
+		Creation of a repertory:
+			- git init
+			- git clone https://github.com/maelker/TobeFree
+		
+		Add files:
+			- git add * ou git add <files>
+			- git commit -m "Modification of some/those folders"
+			- git push origin master
+		
+		Update:
+			- git pull
+		
+		Changes mades:
+			- git status
+
+pour plus de commandes/informations:
+	http://rogerdudler.github.io/git-guide/
+	https://www.linux.com/learn/beginning-git-and-github-linux-users
