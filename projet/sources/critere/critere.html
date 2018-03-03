@@ -25,7 +25,7 @@
 		</div>
 		<div class="corps">
 			<h2>Recherche de pathologie par critère</h2>
-			<form method="post" action="">
+			<form method="post" action="" >
 				<span class="deroule" onclick="javascript:toggleDisplay('meridien')">Selection du méridien</span>
 				<fieldset id="meridien">
 					{foreach from=$list_meridien item=meridien}
@@ -34,13 +34,13 @@
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('type')">Selection du type de pathologie</span>
 				<fieldset id="type">
-					{foreache from=$list_type item=listtype}
+					{foreach from=$list_type item=listtype}
 						<label><input type="checkbox" name="type">{$listtype.type}</label>
 					{/foreach}
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('caract')">Selection des caractéristiques</span>
 				<fieldset id="caract">
-					{foreache from=$list_carac item=listcarac}
+					{foreach from=$list_carac item=listcarac}
 						<label><input type="checkbox" name="caract">{$listcarac.carac}</label>
 					{/foreach}
 				</fieldset>
@@ -49,7 +49,7 @@
 			<div>
 				<h3>Résultat de la recherche</h3>
 				<ul>
-					<li><a href="./pathologie" target="blank">Pathologie1</a></li>
+					<li><a href="./pathologie" target="blank">{$resultatPatho}</a></li>
 					<li><a href="./pathologie" target="blank">Pathologie2</a></li>
 					<li><a href="./pathologie" target="blank">Pathologie3</a></li>
 				</ul>

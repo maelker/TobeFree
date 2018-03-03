@@ -2,7 +2,7 @@
 
 // Extraction des informations
 
-$connexion = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'rcwEsl5y');
+$connexion = new PDO('mysql:host=localhost;dbname=acuBD;charset=utf8', 'root', 'root');
 $query1 = $connexion->prepare("SELECT DISTINCT symptome.desc FROM symptome,keywords,keySympt WHERE keywords.idK=keySympt.idK AND keySympt.idS=symptome.idS");
 
 $query1->execute();

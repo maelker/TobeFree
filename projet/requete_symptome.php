@@ -1,8 +1,14 @@
 <?php
 
 // Extraction des informations
+try{
+	$connexion = new PDO('mysql:host=localhost;dbname=acuBD;charset=utf8', 'root', 'root');
+}
+catch (Exception $e)
+{
+        die('Erreur : ' . $e->getMessage());
+}
 
-$connexion = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'rcwEsl5y');
 $query1 = $connexion->prepare("SELECT nom FROM meridien ");
 
 $query1->execute();
@@ -69,6 +75,11 @@ $tpl = new Smarty();
 $tpl->assign('list_meridien', $list_meridien);
 $tpl->assign('list_type', $list_type);
 $tpl->assign('list_carac', $list_carac);
+
+if ( isset($_POST['valider']) )
+{
+	$tpl->assign('resultatPatho', 'Patho1' );
+}
 
 
 $tpl->display("sources/critere/critere.html");
