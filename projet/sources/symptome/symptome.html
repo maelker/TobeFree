@@ -33,8 +33,10 @@
 			<form method="post" action="" >
 				<fieldset>
 					<legend>mot-clé 1</legend>
-					<label><input type="checkbox" name="symptome1">Symptome 1</label>
-					<label><input type="checkbox" name="symptome2">Symptome 2</label>
+					{foreach from=$list_symptome item=symptome}
+						<label><input type="checkbox" name="symptome1">{$symptome.desc} 1</label>
+					{/foreach}
+
 				</fieldset>
 				<fieldset>
 					<legend>mot-clé 2</legend>

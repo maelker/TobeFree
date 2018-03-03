@@ -28,21 +28,21 @@
 			<form method="post" action="">
 				<span class="deroule" onclick="javascript:toggleDisplay('meridien')">Selection du méridien</span>
 				<fieldset id="meridien">
-					<label><input type="checkbox" name="meridien">Coeur</label>
-					<label><input type="checkbox" name="meridien">Poumon</label>
-					<label><input type="checkbox" name="meridien">Yin Wei Mai</label>
+					{foreach from=$list_meridien item=meridien}
+						<label><input type="checkbox" name="meridien">{$meridien.nom}</label>
+					{/foreach}
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('type')">Selection du type de pathologie</span>
 				<fieldset id="type">
-					<label><input type="checkbox" name="type">Meridien</label>
-					<label><input type="checkbox" name="type">Voie luo</label>
-					<label><input type="checkbox" name="type">Zang</label>
+					{foreache from=$list_type item=listtype}
+						<label><input type="checkbox" name="type">{$listtype.type}</label>
+					{/foreach}
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('caract')">Selection des caractéristiques</span>
 				<fieldset id="caract">
-					<label><input type="checkbox" name="caract">Plein</label>
-					<label><input type="checkbox" name="caract">Chaud</label>
-					<label><input type="checkbox" name="caract">Interne</label>
+					{foreache from=$list_carac item=listcarac}
+						<label><input type="checkbox" name="caract">{$listcarac.carac}</label>
+					{/foreach}
 				</fieldset>
 				<input type="submit" name="valider" class="valider">
 			</form>

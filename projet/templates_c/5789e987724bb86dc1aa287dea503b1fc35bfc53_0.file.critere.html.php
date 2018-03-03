@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-02-27 16:52:17
+/* Smarty version 3.1.30, created on 2018-03-03 15:04:14
   from "/var/www/html/projet/sources/critere/critere.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a957eb16a8e58_16565699',
+  'unifunc' => 'content_5a9aab5ed093d2_24666204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5789e987724bb86dc1aa287dea503b1fc35bfc53' => 
     array (
       0 => '/var/www/html/projet/sources/critere/critere.html',
-      1 => 1519746712,
+      1 => 1520085848,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a957eb16a8e58_16565699 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9aab5ed093d2_24666204 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -54,21 +54,51 @@ function content_5a957eb16a8e58_16565699 (Smarty_Internal_Template $_smarty_tpl)
 			<form method="post" action="">
 				<span class="deroule" onclick="javascript:toggleDisplay('meridien')">Selection du méridien</span>
 				<fieldset id="meridien">
-					<label><input type="checkbox" name="meridien">Coeur</label>
-					<label><input type="checkbox" name="meridien">Poumon</label>
-					<label><input type="checkbox" name="meridien">Yin Wei Mai</label>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_meridien']->value, 'meridien');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['meridien']->value) {
+?>
+					<label><input type="checkbox" name="meridien"><?php echo $_smarty_tpl->tpl_vars['meridien']->value['nom'];?>
+</label>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('type')">Selection du type de pathologie</span>
 				<fieldset id="type">
-					<label><input type="checkbox" name="type">Meridien</label>
-					<label><input type="checkbox" name="type">Voie luo</label>
-					<label><input type="checkbox" name="type">Zang</label>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_type']->value, 'listtype');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['listtype']->value) {
+?>
+					<label><input type="checkbox" name="type"><?php echo $_smarty_tpl->tpl_vars['listtype']->value['type'];?>
+</label>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 				</fieldset>
 				<span class="deroule" onclick="javascript:toggleDisplay('caract')">Selection des caractéristiques</span>
 				<fieldset id="caract">
-					<label><input type="checkbox" name="caract">Plein</label>
-					<label><input type="checkbox" name="caract">Chaud</label>
-					<label><input type="checkbox" name="caract">Interne</label>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_carac']->value, 'listcarac');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['listcarac']->value) {
+?>
+					<label><input type="checkbox" name="carac"><?php echo $_smarty_tpl->tpl_vars['listcarac']->value['carac'];?>
+</label>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 				</fieldset>
 				<input type="submit" name="valider" class="valider">
 			</form>
