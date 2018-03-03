@@ -1446,6 +1446,63 @@ INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
 
 -- --------------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `pathoType` (
+  `idType` int(11) NOT NULL AUTO_INCREMENT,
+  `codeType` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `carac` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description de la pathologie',
+  PRIMARY KEY (`idType`),
+  KEY `mer` (`type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=116 ;
+
+--
+-- RELATIONS POUR LA TABLE `patho`:
+--   `codeType`
+--       `patho` -> `mer`
+--
+
+--
+-- Contenu de la table `patho`
+--
+
+INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
+(1,'me', 'méridien','externe'),
+(2,'mi', 'méridien','interne'),
+(3,'lp', 'voie luo',' pleine'),
+(4,'lv', 'voie luo','vide'),
+(5,'j', 'jing jin'),
+(6,'tfp', 'zang','plein'),
+(7,'tfv', 'zang','vide'),
+(8,'tfc', 'zang','chaud'),
+(9,'tff', 'zang','froid'),
+(10,'tfp', 'fu',' plein'),
+(11,'tfv', 'fu',' vide'),
+(12,'tfc', 'fu','chaud'),
+(13,'tff', 'fu','froid'),
+(14,'tfpc', 'fu','plein et chaud'),
+(15,'tfvf', 'fu','vide et froid'),
+(16,'l2p', 'voie grand luo','pleine'),
+(17,'l2v', 'voie grand luo','vide'),
+(18,'tfpc', 'zang','plein et chaud'),
+(19,'tfvf', 'zang','vide et froid'),
+(20,'tfv-', 'zang yin','vide'),
+(21,'tfv+', 'zang yang','vide'),
+(22,'tfp', 'zang maître','plein'),
+(23,'tfv', 'zang maître','vide'),
+(24,'tfvfs', 'fu','supérieur vide et froid'),
+(25,'tfpcs', 'fu','supérieur plein et chaud'),
+(26,'tfvfm', 'fu','moyen vide et froid'),
+(27,'tfpcm', 'fu','moyen plein et chaud'),
+(28,'tfvfi', 'fu','inférieur vide et froid'),
+(29,'tfpci', 'fu','inférieur plein et chaud'),
+(30,'mv', 'Pathologie Mai',''),
+(31,'mvi', 'Pathologie Mai','inférieure'),
+(32,'mvp', 'Pathologie Mai','postérieure'),
+(33,'mva', 'Pathologie Mai','antérieure'),
+
+
+-- --------------------------------------------------------
+
 --
 -- Structure de la table `symptome`
 --
