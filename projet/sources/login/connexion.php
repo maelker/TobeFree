@@ -1,55 +1,3 @@
-<?php 
-
-//On récupère le mail et de mot de passe du formulaire
-$pseudo = filter_input(INPUT_POST, 'pseudo');
-$pass = filter_input(INPUT_POST, 'pass');
-
-
-if (isset($pseudo,$pass)) 
-{  
-	
-	$pseudo = trim($pseudo) != '' ? $pseudo : null;
-	$pass = trim($pass) != '' ? $pass : null;
-	
-	try{ $connexion = new PDO('mysql: host=localhost;dbname = acuBD; charset = utf8','root','root'); }
-	catch (Exeption $e) { die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo())); }
-	$req = $connexion->query("SELECT * FROM membres WHERE pseudo='$pseudo' AND passe='$pass'");
-	try{
-		$req_prep = $connexion->prepare($req);
-		$req->execute(array($pseudo, $passe));
-		$resultat = $req_prep->fetchColumn();
-
-		if ($resultat != 0)
-		{
-		console.log( "resultat=0");
-		}
-	}
-	// Il faudrait récupérer le mot de passe dans la base de donnée avec peut être un query mais la je sèche ^^ 
-	// Protection des mots de passe avec md5 (hachage)
-
-
-
-	//$mot_de_passe_hache = md5($mot_de_passe);
-
-
-	//On vérifie si les mot de passe sont bien les mêmes
-// 	if($mot_de_passe == $resultat[0]){
-// 		
-// 		echo $resultat[0];
-// 		$_SESSION['etat_connexion'] = true;
-// 		echo "La Connexion est  "; // normalement true
-// 		echo $_SESSION['etat_connexion'];
-// 
-// 	}
-// 	else{
-// 		
-// 		$_SESSION['etat_connexion'] = false;
-// 		
-// 	}
-// }
-//Peut être mettre un message si c'est bon ou pas 
-?>
-
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -73,6 +21,7 @@ if (isset($pseudo,$pass))
 					<li><a href="./critere">Recherche de pathologie par critère</a></li>
 					<li><a href="./symptome">Recherche de pathologie par symptome</a></li>
 					<li><a href="./information">Informations</a></li>
+					<li><a href="./connexion">Connexion</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -81,33 +30,66 @@ if (isset($pseudo,$pass))
 			<div class="column" style="background-color:#bbb;">
 			<h2>Titre 2</h2>
 					<form action="">Login<br>
-					<input type="text" id= "pseudo" name="userid">
+					<input type="text" id= "pseudo" name="pseudo">
 					<br>Password<br>
-					<input type="password" id ="pass" name="psw">
+					<input type="password" id ="pass" name="pass">
 					<input type="submit" value="Connexion">
 					</form></div>
-			<div class="column" style="background-color:#ccc;">
-			<h2>Titre 3</h2>
-			</div>
-			
-		
 		</div>
 	</body>
+	
+	
+	
+
+
+
+
+<?php 
+
+//On récupère le mail et de mot de passe du formulaire
+$pseudo = filter_input(INPUT_POST, 'pseudo');
+$pass = filter_input(INPUT_POST, 'pass');
+
+
+if (isset($pseudo,$pass)) 
+{  
+	
+	$pseudo = trim($pseudo) != '' ? $pseudo : null;
+	$pass = trim($pass) != '' ? $pass : null;
+		
+	try{
+		$connexion = new PDO('mysql: host=localhost;dbname = acuBD; charset = utf8','root','root');
+	}
+	catch(Exeption $e){
+		die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo()));
+	}
+
+	$req = $bdd->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
+	$req->execute(array('pseudo' => $pseudo));
+	$resultat = $req->fetch();
+
+	// Comparaison du pass envoyé via le formulaire avec la base
+	$isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
+
+	if (!$resultat)
+	{
+			echo 'Mauvais identifiant ou mot de passe !';
+	}
+	else
+	{
+			if ($isPasswordCorrect) {
+					session_start();
+					$_SESSION['id'] = $resultat['id'];
+					$_SESSION['pseudo'] = $pseudo;
+					echo 'Vous êtes connecté !';
+			}
+			else {
+					echo 'Mauvais identifiant ou mot de passe !';
+			}
+	}
+}	
+
+?>
+
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

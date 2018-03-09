@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Ven 09 Mars 2018 à 16:19
--- Version du serveur :  5.7.21-0ubuntu0.16.04.1
--- Version de PHP :  7.0.27-1+ubuntu16.04.1+deb.sury.org+1
+-- Host: localhost
+-- Generation Time: Mar 09, 2018 at 04:45 PM
+-- Server version: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.25-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `acuBD`
+-- Database: `acuBD`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `keySympt`
+-- Table structure for table `keySympt`
 --
 
 CREATE TABLE `keySympt` (
@@ -32,7 +32,7 @@ CREATE TABLE `keySympt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `keySympt`
+-- Dumping data for table `keySympt`
 --
 
 INSERT INTO `keySympt` (`idK`, `idS`) VALUES
@@ -893,7 +893,7 @@ INSERT INTO `keySympt` (`idK`, `idS`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `keywords`
+-- Table structure for table `keywords`
 --
 
 CREATE TABLE `keywords` (
@@ -902,7 +902,7 @@ CREATE TABLE `keywords` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `keywords`
+-- Dumping data for table `keywords`
 --
 
 INSERT INTO `keywords` (`idK`, `name`) VALUES
@@ -1256,7 +1256,21 @@ INSERT INTO `keywords` (`idK`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `meridien`
+-- Table structure for table `membres`
+--
+
+CREATE TABLE `membres` (
+  `ID` int(11) NOT NULL,
+  `pseudo` varchar(100) NOT NULL,
+  `pass` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_enregistrement` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meridien`
 --
 
 CREATE TABLE `meridien` (
@@ -1267,7 +1281,7 @@ CREATE TABLE `meridien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `meridien`
+-- Dumping data for table `meridien`
 --
 
 INSERT INTO `meridien` (`code`, `nom`, `element`, `yin`) VALUES
@@ -1295,7 +1309,7 @@ INSERT INTO `meridien` (`code`, `nom`, `element`, `yin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `patho`
+-- Table structure for table `patho`
 --
 
 CREATE TABLE `patho` (
@@ -1306,7 +1320,7 @@ CREATE TABLE `patho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `patho`
+-- Dumping data for table `patho`
 --
 
 INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
@@ -1427,7 +1441,7 @@ INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pathoType`
+-- Table structure for table `pathoType`
 --
 
 CREATE TABLE `pathoType` (
@@ -1438,7 +1452,7 @@ CREATE TABLE `pathoType` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `pathoType`
+-- Dumping data for table `pathoType`
 --
 
 INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
@@ -1479,7 +1493,7 @@ INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `symptome`
+-- Table structure for table `symptome`
 --
 
 CREATE TABLE `symptome` (
@@ -1488,7 +1502,7 @@ CREATE TABLE `symptome` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `symptome`
+-- Dumping data for table `symptome`
 --
 
 INSERT INTO `symptome` (`idS`, `desc`) VALUES
@@ -1939,7 +1953,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `symptPatho`
+-- Table structure for table `symptPatho`
 --
 
 CREATE TABLE `symptPatho` (
@@ -1949,7 +1963,7 @@ CREATE TABLE `symptPatho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `symptPatho`
+-- Dumping data for table `symptPatho`
 --
 
 INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
@@ -2488,75 +2502,87 @@ INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
 (448, 113, 0);
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `keySympt`
+-- Indexes for table `keySympt`
 --
 ALTER TABLE `keySympt`
   ADD PRIMARY KEY (`idK`,`idS`);
 
 --
--- Index pour la table `keywords`
+-- Indexes for table `keywords`
 --
 ALTER TABLE `keywords`
   ADD PRIMARY KEY (`idK`);
 
 --
--- Index pour la table `meridien`
+-- Indexes for table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `pseudo` (`pseudo`);
+
+--
+-- Indexes for table `meridien`
 --
 ALTER TABLE `meridien`
   ADD PRIMARY KEY (`code`),
   ADD KEY `element` (`element`);
 
 --
--- Index pour la table `patho`
+-- Indexes for table `patho`
 --
 ALTER TABLE `patho`
   ADD PRIMARY KEY (`idP`),
   ADD KEY `code` (`mer`);
 
 --
--- Index pour la table `pathoType`
+-- Indexes for table `pathoType`
 --
 ALTER TABLE `pathoType`
   ADD PRIMARY KEY (`idType`),
   ADD KEY `mer` (`type`);
 
 --
--- Index pour la table `symptome`
+-- Indexes for table `symptome`
 --
 ALTER TABLE `symptome`
   ADD PRIMARY KEY (`idS`);
 
 --
--- Index pour la table `symptPatho`
+-- Indexes for table `symptPatho`
 --
 ALTER TABLE `symptPatho`
   ADD PRIMARY KEY (`idS`,`idP`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `keywords`
+-- AUTO_INCREMENT for table `keywords`
 --
 ALTER TABLE `keywords`
   MODIFY `idK` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du mot clef', AUTO_INCREMENT=347;
 --
--- AUTO_INCREMENT pour la table `patho`
+-- AUTO_INCREMENT for table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `patho`
 --
 ALTER TABLE `patho`
   MODIFY `idP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 --
--- AUTO_INCREMENT pour la table `pathoType`
+-- AUTO_INCREMENT for table `pathoType`
 --
 ALTER TABLE `pathoType`
   MODIFY `idType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
--- AUTO_INCREMENT pour la table `symptome`
+-- AUTO_INCREMENT for table `symptome`
 --
 ALTER TABLE `symptome`
   MODIFY `idS` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du symptome', AUTO_INCREMENT=449;

@@ -25,6 +25,8 @@ if($url == '') {
 		$smarty->display("sources/pathologie/pathologie.html");	
 } elseif($url[0]=='information') {
 		$smarty->display("sources/info/information.html");
+} elseif($url[0]=='connexion') {
+		require 'sources/login/connexion.php';  //url=localhost/projet/connexion	
 }
 
 ?>
