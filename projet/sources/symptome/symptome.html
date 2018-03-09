@@ -25,23 +25,25 @@
 		</div>
 		<div class="corps">
 			<h2>Recherche de pathologie par symptomes</h2>
-			<form method="post" action="" >
+			<form method="post" action="requete_motcle.php" >
 				<p>Entrez un mot clé du symptome recherché</p>
 				<input type="search" name="keyword" placeholder="mot-clé" size="50">
 				<input type="submit" name="recherche" class="search" value="rechercher">
 			</form>
-			<form method="post" action="" >
+			<form method="post" action="requete_motcle.php" >
 				<fieldset>
-					<legend>mot-clé 1</legend>
+
+					<legend>{$mot_cle_affiche}</legend>
 					{foreach from=$list_symptome item=symptome}
-						<label><input type="checkbox" name="symptome1">{$symptome.desc} 1</label>
+						<label><input type="checkbox" name="symptome1">{$symptome.desc}</label>
 					{/foreach}
 
 				</fieldset>
 				<fieldset>
-					<legend>mot-clé 2</legend>
-					<label><input type="checkbox" name="symptome3">Symptome 3</label>
-					<label><input type="checkbox" name="symptome4">Symptome 4</label>
+					<legend>{$mot_cle_affiche2}</legend>
+				{foreach from=$list_symptome2 item=symptome2}
+						<label><input type="checkbox" name="symptome2">{$symptome2.desc}</label>
+					{/foreach}
 				</fieldset>
 				<input type="submit" name="valider" class="valider">
 			</form>
