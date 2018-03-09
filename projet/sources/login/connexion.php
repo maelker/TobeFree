@@ -50,44 +50,38 @@
 $pseudo = filter_input(INPUT_POST, 'pseudo');
 $pass = filter_input(INPUT_POST, 'pass');
 
-
-if (isset($pseudo,$pass)) 
-{  
+ 
 	
-	$pseudo = trim($pseudo) != '' ? $pseudo : null;
-	$pass = trim($pass) != '' ? $pass : null;
-		
-	try{
-		$connexion = new PDO('mysql: host=localhost;dbname = acuBD; charset = utf8','root','root');
-	}
-	catch(Exeption $e){
-		die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo()));
-	}
+$pseudo = trim($pseudo) != '' ? $pseudo : null;
+$pass = trim($pass) != '' ? $pass : null;
+	
+try{
+	$connexion = new PDO('mysql: host=localhost;dbname = acuBD; charset = utf8','root','root');
+}
+catch(Exeption $e){
+	die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo()));
+}
 
-	$req = $bdd->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
-	$req->execute(array('pseudo' => $pseudo));
-	$resultat = $req->fetch();
+$req = $connexion->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
+$req->execute(array('pseudo' => $pseudo));
+$resultat = $req->fetch();
 
-	// Comparaison du pass envoyé via le formulaire avec la base
-	$isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
+// Comparaison du pass envoyé via le formulaire avec la base
 
-	if (!$resultat)
-	{
-			echo 'Mauvais identifiant ou mot de passe !';
-	}
-	else
-	{
-			if ($isPasswordCorrect) {
-					session_start();
-					$_SESSION['id'] = $resultat['id'];
-					$_SESSION['pseudo'] = $pseudo;
-					echo 'Vous êtes connecté !';
-			}
-			else {
-					echo 'Mauvais identifiant ou mot de passe !';
-			}
-	}
-}	
+$pass_hach = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+if ($pass_hach != $resultat[0])
+{
+		echo 'Mauvais identifiant ou mot de passe !';
+}
+else
+{
+	session_start();
+	$_SESSION['id'] = $resultat['id'];
+	$_SESSION['pseudo'] = $pseudo;
+	echo 'Vous êtes connecté !';
+}
+
 
 ?>
 
