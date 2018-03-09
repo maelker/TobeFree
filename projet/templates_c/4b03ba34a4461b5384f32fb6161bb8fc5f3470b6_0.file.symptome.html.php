@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-02-27 16:52:17
+/* Smarty version 3.1.30, created on 2018-03-09 13:07:52
   from "/var/www/html/projet/sources/symptome/symptome.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a957eb106fb85_12867149',
+  'unifunc' => 'content_5aa27918a15b61_30400411',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b03ba34a4461b5384f32fb6161bb8fc5f3470b6' => 
     array (
       0 => '/var/www/html/projet/sources/symptome/symptome.html',
-      1 => 1519746707,
+      1 => 1520236068,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a957eb106fb85_12867149 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa27918a15b61_30400411 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -57,8 +57,20 @@ function content_5a957eb106fb85_12867149 (Smarty_Internal_Template $_smarty_tpl)
 			<form method="post" action="" >
 				<fieldset>
 					<legend>mot-clé 1</legend>
-					<label><input type="checkbox" name="symptome1">Symptome 1</label>
-					<label><input type="checkbox" name="symptome2">Symptome 2</label>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_symptome']->value, 'symptome');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['symptome']->value) {
+?>
+						<label><input type="checkbox" name="symptome1"><?php echo $_smarty_tpl->tpl_vars['symptome']->value['desc'];?>
+ 1</label>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+
 				</fieldset>
 				<fieldset>
 					<legend>mot-clé 2</legend>
