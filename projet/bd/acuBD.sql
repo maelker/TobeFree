@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Jeu 02 Octobre 2014 à 17:02
--- Version du serveur: 5.5.38-0ubuntu0.14.04.1
--- Version de PHP: 5.5.9-1ubuntu4.4
+-- Client :  localhost
+-- Généré le :  Ven 09 Mars 2018 à 16:19
+-- Version du serveur :  5.7.21-0ubuntu0.16.04.1
+-- Version de PHP :  7.0.27-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données: `acu`
+-- Base de données :  `acuBD`
 --
 
 -- --------------------------------------------------------
@@ -26,19 +26,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `keySympt`
 --
 
-CREATE TABLE IF NOT EXISTS `keySympt` (
+CREATE TABLE `keySympt` (
   `idK` int(11) NOT NULL,
-  `idS` int(11) NOT NULL,
-  PRIMARY KEY (`idK`,`idS`)
+  `idS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS POUR LA TABLE `keySympt`:
---   `idK`
---       `keywords` -> `idK`
---   `idS`
---       `symptome` -> `idS`
---
 
 --
 -- Contenu de la table `keySympt`
@@ -905,11 +896,10 @@ INSERT INTO `keySympt` (`idK`, `idS`) VALUES
 -- Structure de la table `keywords`
 --
 
-CREATE TABLE IF NOT EXISTS `keywords` (
-  `idK` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du mot clef',
-  `name` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'mot clef',
-  PRIMARY KEY (`idK`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=347 ;
+CREATE TABLE `keywords` (
+  `idK` int(11) NOT NULL COMMENT 'id du mot clef',
+  `name` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'mot clef'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `keywords`
@@ -1269,13 +1259,11 @@ INSERT INTO `keywords` (`idK`, `name`) VALUES
 -- Structure de la table `meridien`
 --
 
-CREATE TABLE IF NOT EXISTS `meridien` (
+CREATE TABLE `meridien` (
   `code` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'code du méridien',
   `nom` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'nom',
   `element` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'élément',
-  `yin` tinyint(1) NOT NULL COMMENT 'vrai si yin',
-  PRIMARY KEY (`code`),
-  KEY `element` (`element`)
+  `yin` tinyint(1) NOT NULL COMMENT 'vrai si yin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1310,20 +1298,12 @@ INSERT INTO `meridien` (`code`, `nom`, `element`, `yin`) VALUES
 -- Structure de la table `patho`
 --
 
-CREATE TABLE IF NOT EXISTS `patho` (
-  `idP` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `patho` (
+  `idP` int(11) NOT NULL,
   `mer` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'code du méridien',
   `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description de la pathologie',
-  PRIMARY KEY (`idP`),
-  KEY `code` (`mer`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=116 ;
-
---
--- RELATIONS POUR LA TABLE `patho`:
---   `mer`
---       `meridien` -> `code`
---
+  `desc` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description de la pathologie'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `patho`
@@ -1348,11 +1328,11 @@ INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
 (16, 'GI', 'tfv', 'fu gros intestin vide'),
 (17, 'GI', 'tfc', 'fu gros intestin chaud'),
 (18, 'GI', 'tff', 'fu gros intestin froid'),
-(19, 'E', 'me', 'méridien de l''estomac externe'),
-(20, 'E', 'mi', 'méridien de l''estomac interne'),
-(21, 'E', 'lp', 'voie luo de l''estomac pleine'),
-(22, 'E', 'lv', 'voie luo de l''estomac vide'),
-(23, 'E', 'j', 'jing jin de l''estomac'),
+(19, 'E', 'me', 'méridien de l\'estomac externe'),
+(20, 'E', 'mi', 'méridien de l\'estomac interne'),
+(21, 'E', 'lp', 'voie luo de l\'estomac pleine'),
+(22, 'E', 'lv', 'voie luo de l\'estomac vide'),
+(23, 'E', 'j', 'jing jin de l\'estomac'),
 (24, 'E', 'tfpc', 'fu estomac plein et chaud'),
 (25, 'E', 'tfvf', 'fu estomac vide et froid'),
 (26, 'Rte', 'me', 'méridien de la rate externe'),
@@ -1371,11 +1351,11 @@ INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
 (39, 'C', 'j', 'jing jin du cœur'),
 (40, 'C', 'tfp', 'zang cœur plein'),
 (41, 'C', 'tfv', 'zang  cœur vide'),
-(42, 'IG', 'me', 'méridien de l''intestin grêle externe'),
-(43, 'IG', 'mi', 'méridien de l''intestin grêle interne'),
-(44, 'IG', 'lp', 'voie luo de l''intestin grêle pleine'),
-(45, 'IG', 'lv', 'voie luo de l''intestin grêle vide'),
-(46, 'IG', 'j', 'jing jin de l''intestin grêle'),
+(42, 'IG', 'me', 'méridien de l\'intestin grêle externe'),
+(43, 'IG', 'mi', 'méridien de l\'intestin grêle interne'),
+(44, 'IG', 'lp', 'voie luo de l\'intestin grêle pleine'),
+(45, 'IG', 'lv', 'voie luo de l\'intestin grêle vide'),
+(46, 'IG', 'j', 'jing jin de l\'intestin grêle'),
 (47, 'IG', 'tfpc', 'fu intestin grêle plein et chaud'),
 (48, 'IG', 'tfvf', 'fu intestin grêle vide et froid'),
 (49, 'V', 'me', 'méridien de la vessie externe'),
@@ -1446,60 +1426,55 @@ INSERT INTO `patho` (`idP`, `mer`, `type`, `desc`) VALUES
 
 -- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `pathoType` (
-  `idType` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Structure de la table `pathoType`
+--
+
+CREATE TABLE `pathoType` (
+  `idType` int(11) NOT NULL,
   `codeType` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carac` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description de la pathologie',
-  PRIMARY KEY (`idType`),
-  KEY `mer` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=116 ;
+  `carac` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description de la pathologie'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS POUR LA TABLE `patho`:
---   `codeType`
---       `patho` -> `mer`
---
-
---
--- Contenu de la table `patho`
+-- Contenu de la table `pathoType`
 --
 
 INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
-(1,'me', 'méridien','externe'),
-(2,'mi', 'méridien','interne'),
-(3,'lp', 'voie luo',' pleine'),
-(4,'lv', 'voie luo','vide'),
-(5,'j', 'jing jin'),
-(6,'tfp', 'zang','plein'),
-(7,'tfv', 'zang','vide'),
-(8,'tfc', 'zang','chaud'),
-(9,'tff', 'zang','froid'),
-(10,'tfp', 'fu',' plein'),
-(11,'tfv', 'fu',' vide'),
-(12,'tfc', 'fu','chaud'),
-(13,'tff', 'fu','froid'),
-(14,'tfpc', 'fu','plein et chaud'),
-(15,'tfvf', 'fu','vide et froid'),
-(16,'l2p', 'voie grand luo','pleine'),
-(17,'l2v', 'voie grand luo','vide'),
-(18,'tfpc', 'zang','plein et chaud'),
-(19,'tfvf', 'zang','vide et froid'),
-(20,'tfv-', 'zang yin','vide'),
-(21,'tfv+', 'zang yang','vide'),
-(22,'tfp', 'zang maître','plein'),
-(23,'tfv', 'zang maître','vide'),
-(24,'tfvfs', 'fu','supérieur vide et froid'),
-(25,'tfpcs', 'fu','supérieur plein et chaud'),
-(26,'tfvfm', 'fu','moyen vide et froid'),
-(27,'tfpcm', 'fu','moyen plein et chaud'),
-(28,'tfvfi', 'fu','inférieur vide et froid'),
-(29,'tfpci', 'fu','inférieur plein et chaud'),
-(30,'mv', 'Pathologie Mai',''),
-(31,'mvi', 'Pathologie Mai','inférieure'),
-(32,'mvp', 'Pathologie Mai','postérieure'),
-(33,'mva', 'Pathologie Mai','antérieure'),
-
+(1, 'me', 'méridien', 'externe'),
+(2, 'mi', 'méridien', 'interne'),
+(3, 'lp', 'voie luo', 'pleine'),
+(4, 'lv', 'voie luo', 'vide'),
+(5, 'j', 'jing jin', ''),
+(6, 'tfp', 'zang', 'plein'),
+(7, 'tfv', 'zang', 'vide'),
+(8, 'tfc', 'zang', 'chaud'),
+(9, 'tff', 'zang', 'froid'),
+(10, 'tfp', 'fu', 'plein'),
+(11, 'tfv', 'fu', ' vide'),
+(12, 'tfc', 'fu', 'chaud'),
+(13, 'tff', 'fu', 'froid'),
+(14, 'tfpc', 'fu', 'plein et chaud'),
+(15, 'tfvf', 'fu', 'vide et froid'),
+(16, 'l2p', 'voie grand', 'pleine'),
+(17, 'l2v', 'voie grand', 'vide'),
+(18, 'tfpc', 'zang', 'plein et chaud'),
+(19, 'tfvf', 'zang', 'vide et froid'),
+(20, 'tfv-', 'zang yin', 'vide'),
+(21, 'tfv+', 'zang yang', 'vide'),
+(22, 'tfp', 'zang maîtr', 'plein'),
+(23, 'tfv', 'zang maîtr', 'vide'),
+(24, 'tfvfs', 'fu', 'supérieur vide et froid'),
+(25, 'tfpcs', 'fu', 'supérieur plein et chaud'),
+(26, 'tfvfm', 'fu', 'moyen vide et froid'),
+(27, 'tfpcm', 'fu', 'moyen plein et chaud'),
+(28, 'tfvfi', 'fu', 'inférieur vide et froid'),
+(29, 'tfpci', 'fu', 'inférieur plein et chaud'),
+(30, 'mv', 'Pathologie', ''),
+(31, 'mvi', 'Pathologie', 'inférieure'),
+(32, 'mvp', 'Pathologie', 'postérieure'),
+(33, 'mva', 'Pathologie', 'antérieure');
 
 -- --------------------------------------------------------
 
@@ -1507,11 +1482,10 @@ INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
 -- Structure de la table `symptome`
 --
 
-CREATE TABLE IF NOT EXISTS `symptome` (
-  `idS` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du symptome',
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description du symptôme',
-  PRIMARY KEY (`idS`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=449 ;
+CREATE TABLE `symptome` (
+  `idS` int(11) NOT NULL COMMENT 'id du symptome',
+  `desc` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'description du symptôme'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `symptome`
@@ -1520,7 +1494,7 @@ CREATE TABLE IF NOT EXISTS `symptome` (
 INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (1, 'Abdomen dilaté, douloureux et chaud'),
 (2, 'Abdomen flasque'),
-(3, 'Absence d''érection'),
+(3, 'Absence d\'érection'),
 (4, 'Absence de faim'),
 (5, 'Absence de soif'),
 (6, 'Agitation'),
@@ -1530,7 +1504,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (10, 'Amygdalite, gorge irritée'),
 (11, 'Angoisse se manifestant par des serrements de poitrine'),
 (12, 'Anorexie'),
-(13, 'Anxiété et sentiment d''être malheureux'),
+(13, 'Anxiété et sentiment d\'être malheureux'),
 (14, 'Apparition de petite verrues pédiculées sur le trajet du méridien'),
 (15, 'Articulation du coude relâchée, ne fonctionne plus'),
 (16, 'Aspect noirâtre de la face et du front'),
@@ -1542,11 +1516,11 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (22, 'Ballonnement abdominal'),
 (23, 'Ballonnements, frissons et sensation de froid à la partie antérieure du corps'),
 (24, 'Battement des ailes du nez'),
-(25, 'Blocage de la respiration, peï du 2ème mois d''hivers'),
+(25, 'Blocage de la respiration, peï du 2ème mois d\'hivers'),
 (26, 'Borborygmes'),
 (27, 'Bouche et lèvres sèches'),
 (28, 'Bouche sèche et amère'),
-(29, 'Bruit douloureux de l''oreille qui se répercute jusqu''au menton'),
+(29, 'Bruit douloureux de l\'oreille qui se répercute jusqu\'au menton'),
 (30, 'Cardialgie'),
 (31, 'Cardialgie soudaine'),
 (32, 'Carie dentaire, surdité'),
@@ -1555,7 +1529,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (35, 'Cervicalgie à type de torsion'),
 (36, 'Chaleur au milieu de la paume et tremblement des mains'),
 (37, 'Chaleur dans la paume de la main'),
-(38, 'Chaleur des mains et de l''éminence thénar'),
+(38, 'Chaleur des mains et de l\'éminence thénar'),
 (39, 'Chaleur du foyer supérieur entraînant bouche sèche et amère, yeux rouges et enflés'),
 (40, 'Chaleur et douleur à la paume des mains'),
 (41, 'Chaleur et enflure sur le trajet du méridien'),
@@ -1571,7 +1545,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (51, 'Constipation, selles dures'),
 (52, 'Contraction du diaphragme'),
 (53, 'Contracture du coude'),
-(54, 'Contracture du coude et de l''avant bras'),
+(54, 'Contracture du coude et de l\'avant bras'),
 (55, 'Coryza clair'),
 (56, 'Coryza et épistaxis'),
 (57, 'Cou gonflé si les ligaments sont atteints par le froid ou la chaleur nocive'),
@@ -1588,12 +1562,12 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (68, 'Défécation et miction difficiles'),
 (69, 'Démangeaisons violentes'),
 (70, 'Dépression sévère'),
-(71, 'Désir de se cambrer et d''allonger les jambes'),
+(71, 'Désir de se cambrer et d\'allonger les jambes'),
 (72, 'Désir être debout quand la personne est assise'),
 (73, 'Dessèchement des phanères'),
 (74, 'Déviation de la bouche et des yeux'),
 (75, 'Diarrhée'),
-(76, 'Diarrhée d''aliments non digérés'),
+(76, 'Diarrhée d\'aliments non digérés'),
 (77, 'Diarrhée jaune pâle dorée'),
 (79, 'Diarrhées aqueuses continuelles'),
 (80, 'Diarrhées blanches sitôt après avoir mangé'),
@@ -1602,52 +1576,52 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (83, 'Difficulté de déglutition et aphonie subite'),
 (84, 'Difficulté respiratoire avec douleur costale'),
 (85, 'Distension douloureuse du ventre'),
-(86, 'Distension et douleur de l''abdomen et de l''anus'),
-(87, 'Douleur à l''aine'),
-(88, 'Douleur à l''épaule et au dos avec urines claires et respiration courte'),
-(89, 'Douleur à l''ombilic et à la colonne vertébrale'),
+(86, 'Distension et douleur de l\'abdomen et de l\'anus'),
+(87, 'Douleur à l\'aine'),
+(88, 'Douleur à l\'épaule et au dos avec urines claires et respiration courte'),
+(89, 'Douleur à l\'ombilic et à la colonne vertébrale'),
 (90, 'Douleur à la colonne vertébrale'),
-(91, 'Douleur à la commissure externe de l''œil'),
+(91, 'Douleur à la commissure externe de l\'œil'),
 (92, 'Douleur à la racine de la langue'),
 (93, 'Douleur abdominal aiguë'),
 (94, 'Douleur abdominale'),
 (95, 'Douleur au cœur en coup de poignard'),
 (96, 'Douleur au mollet de type déchirure'),
-(97, 'Douleur au scrotum et à l''abdomen'),
+(97, 'Douleur au scrotum et à l\'abdomen'),
 (98, 'Douleur aux lombes avec sensation de fragilité'),
-(99, 'Douleur avec sensation de froid à la face interne de l''avant-bras et du bras'),
-(100, 'Douleur brûlante dans les reins et l''abdomen avec sensation de froid et de faiblesse aux jambes'),
+(99, 'Douleur avec sensation de froid à la face interne de l\'avant-bras et du bras'),
+(100, 'Douleur brûlante dans les reins et l\'abdomen avec sensation de froid et de faiblesse aux jambes'),
 (101, 'Douleur cardiaque'),
-(102, 'Douleur constrictive de la région génitale et de l''abdomen'),
+(102, 'Douleur constrictive de la région génitale et de l\'abdomen'),
 (103, 'Douleur côté interne du genou avec crampes à la cuisse du même côté'),
 (104, 'Douleur dans la poitrine'),
-(105, 'Douleur dans le cou lorsqu''on tourne la tête'),
+(105, 'Douleur dans le cou lorsqu\'on tourne la tête'),
 (106, 'Douleur dans le trajet du méridien avec impossibilité de mouvoir le 4ème et le 5ème orteil'),
 (107, 'Douleur de gorge'),
-(108, 'Douleur de l''aisselle contournant l''omoplate jusqu''au cou'),
-(109, 'Douleur de l''articulation de l''épaule avec sensation de cassure'),
-(110, 'Douleur de l''auriculaire vers la face interne du coude jusqu''à l''olécrane et côté interne du bras'),
-(111, 'Douleur de l''œsophage'),
+(108, 'Douleur de l\'aisselle contournant l\'omoplate jusqu\'au cou'),
+(109, 'Douleur de l\'articulation de l\'épaule avec sensation de cassure'),
+(110, 'Douleur de l\'auriculaire vers la face interne du coude jusqu\'à l\'olécrane et côté interne du bras'),
+(111, 'Douleur de l\'œsophage'),
 (113, 'Douleur de la mâchoire inférieure'),
 (114, 'Douleur du gros orteil et de la malléole interne'),
-(115, 'Douleur du gros orteil s''étendant sur la face antérieure de la malléole interne'),
+(115, 'Douleur du gros orteil s\'étendant sur la face antérieure de la malléole interne'),
 (116, 'Douleur du mollet et de la face postéro-externe de la jambe avec sensation de déchirure'),
 (117, 'Douleur et asthénie de la région lombaire'),
 (118, 'Douleur et lourdeur épigastrique'),
 (119, 'Douleur face interne de la cuisse'),
-(120, 'Douleur face interne de la cuisse jusqu''au pubis, contracture douloureuse de l''appareil génital'),
+(120, 'Douleur face interne de la cuisse jusqu\'au pubis, contracture douloureuse de l\'appareil génital'),
 (121, 'Douleur lancinante au creux sus-claviculaire'),
 (122, 'Douleur le long du trajet du méridien'),
-(123, 'Douleur le long du trajet du méridien avec paralysie de l''annulaire et de l''auriculaire'),
+(123, 'Douleur le long du trajet du méridien avec paralysie de l\'annulaire et de l\'auriculaire'),
 (124, 'Douleur le long du trajet du méridien avec paralysie du 3ème orteil'),
 (125, 'Douleur lombaire'),
-(126, 'Douleur oculaire avec sensation d''exophtalmie'),
-(127, 'Douleur œsophagienne et de l''estomac'),
+(126, 'Douleur oculaire avec sensation d\'exophtalmie'),
+(127, 'Douleur œsophagienne et de l\'estomac'),
 (128, 'Douleur soudaine sous les côtes'),
-(129, 'Douleur sourde à l''intérieur des intestins'),
-(130, 'Douleur sous l''aisselle et sus-claviculaire'),
+(129, 'Douleur sourde à l\'intérieur des intestins'),
+(130, 'Douleur sous l\'aisselle et sus-claviculaire'),
 (131, 'Douleur sur le trajet du méridien'),
-(132, 'Douleur sur le trajet du méridien avec paralysie de l''index'),
+(132, 'Douleur sur le trajet du méridien avec paralysie de l\'index'),
 (133, 'Douleur thoracique aiguë comme un coup de poignard'),
 (134, 'Douleur thoracique sourde, dyspnée et toux'),
 (135, 'Douleur tout le long du trajet du méridien'),
@@ -1666,13 +1640,13 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (148, 'Enflure de la mâchoire inférieure empêchant la rotation du cou'),
 (149, 'Engourdissements'),
 (150, 'Épanchement testiculaire'),
-(151, 'Épaule bloquée, rotation du cou impossible, peï du premier mois d''été'),
+(151, 'Épaule bloquée, rotation du cou impossible, peï du premier mois d\'été'),
 (152, 'Épaule et dos douloureux'),
 (153, 'Épilepsie'),
 (154, 'Épistaxis'),
 (155, 'Éructations fréquentes après défécation'),
 (156, 'Évacuation incomplète de la vessie'),
-(157, 'Excès d''appétit'),
+(157, 'Excès d\'appétit'),
 (158, 'Extrémités froides'),
 (159, 'Faciès rouge'),
 (160, 'Faiblesse'),
@@ -1683,7 +1657,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (165, 'Fièvre et transpiration brutale et intermittente'),
 (166, 'Folie'),
 (167, 'Fourmillements et picotements cardiaque'),
-(168, 'Frayeurs (impression qu''on va l''incarcérer)'),
+(168, 'Frayeurs (impression qu\'on va l\'incarcérer)'),
 (169, 'Frisons incontrôlables'),
 (170, 'Frissons, tremblements et difficultés à se réchauffer'),
 (171, 'Froid aux dents'),
@@ -1691,10 +1665,10 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (174, 'Ganglions'),
 (175, 'Gargouillis permanents'),
 (176, 'Gaz avec ballonnements'),
-(177, 'Gaz dans l''abdomen'),
-(178, 'Gaz de l''intestin grêle avec douleur et induration'),
+(177, 'Gaz dans l\'abdomen'),
+(178, 'Gaz de l\'intestin grêle avec douleur et induration'),
 (179, 'Gonflement abdominal'),
-(180, 'Gonflement de l''aisselle'),
+(180, 'Gonflement de l\'aisselle'),
 (181, 'Gonflement du scrotum; hernie inguinale'),
 (182, 'Gorge enflée'),
 (183, 'Gorge et peau sèches'),
@@ -1707,7 +1681,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (190, 'Hémoptysie'),
 (191, 'Hémorroïdes'),
 (192, 'Ictère'),
-(193, 'Impossibilité d''ouvrir les yeux par hypotonie musculaire'),
+(193, 'Impossibilité d\'ouvrir les yeux par hypotonie musculaire'),
 (194, 'Impossibilité de fermer les paupières par contracture'),
 (195, 'Impossibilité de parler'),
 (196, 'Impressionnable'),
@@ -1721,12 +1695,12 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (204, 'Insomnie'),
 (205, 'Insomnie imposant la station debout'),
 (206, 'Insomnie par soucis'),
-(207, 'Irradiation de la douleur du pubis au sacrum ainsi qu''aux reins, aux côtes flottantes et au xiiE'),
+(207, 'Irradiation de la douleur du pubis au sacrum ainsi qu\'aux reins, aux côtes flottantes et au xiiE'),
 (208, 'Irritabilité'),
 (209, 'Jambes affaiblies, détendues, sans force'),
 (210, 'Jaunisse'),
-(211, 'L''articulation du genou ne peut fléchir ni s''étendre'),
-(212, 'La langue a tendance à s''enrouler sur elle-même'),
+(211, 'L\'articulation du genou ne peut fléchir ni s\'étendre'),
+(212, 'La langue a tendance à s\'enrouler sur elle-même'),
 (213, 'La région de la tête et du dos est douloureuse'),
 (214, 'Langue rouge'),
 (215, 'Langue sèche'),
@@ -1742,7 +1716,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (225, 'Mal de gorge et tuméfaction du cou'),
 (226, 'Manque de concentration'),
 (227, 'Manque de contrôle de la vessie'),
-(228, 'Marche en s''inclinant en avant'),
+(228, 'Marche en s\'inclinant en avant'),
 (229, 'Mastoïdite'),
 (230, 'Mauvaise haleine'),
 (231, 'Membres atrophiés et froids avec douleur et chaleur dans la plante du pied'),
@@ -1761,7 +1735,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (245, 'Ne peut se lever quand on est assis'),
 (246, 'Obstruction pharyngienne'),
 (247, 'Œdème'),
-(248, 'Œdème au pubis et à l''aine'),
+(248, 'Œdème au pubis et à l\'aine'),
 (249, 'Œdème, distension abdominale'),
 (250, 'Œdèmes à la face interne des cuisses et des genoux avec refroidissement des extrémités et blocage du gros orteil'),
 (251, 'Œil fermé si la douleur y parvient'),
@@ -1773,19 +1747,19 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (257, 'Paralysie faciale'),
 (258, 'Parasitose'),
 (259, 'Parle en dormant'),
-(260, 'Pas d''appétit'),
+(260, 'Pas d\'appétit'),
 (261, 'Pas de goût pour la vie'),
 (262, 'Peau déshydratée'),
 (263, 'Peau jaune et sans éclat'),
-(264, 'Peï du 1er mois d''hivers'),
-(265, 'Peï du 1er mois de l''automne'),
+(264, 'Peï du 1er mois d\'hivers'),
+(265, 'Peï du 1er mois de l\'automne'),
 (266, 'Peï du 1er mois de printemps'),
-(267, 'Peï du 2ème mois d''automne'),
-(268, 'Peï du 2ème mois d''été'),
+(267, 'Peï du 2ème mois d\'automne'),
+(268, 'Peï du 2ème mois d\'été'),
 (269, 'Peï du 3ème mois de printemps'),
-(270, 'Peï du dernier mois d''automne'),
-(271, 'Peï du dernier mois d''été'),
-(272, 'Peï du dernier mois d''hivers'),
+(270, 'Peï du dernier mois d\'automne'),
+(271, 'Peï du dernier mois d\'été'),
+(272, 'Peï du dernier mois d\'hivers'),
 (274, 'Pharyngite'),
 (275, 'Phobies'),
 (276, 'Phosphènes et surdité'),
@@ -1795,28 +1769,28 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (280, 'Poids sur la poitrine'),
 (281, 'Poitrine dilatée'),
 (282, 'Pollution nocturne'),
-(283, 'Possibilité de douleur lombaire et douleur dans les testicules ou l''aine'),
+(283, 'Possibilité de douleur lombaire et douleur dans les testicules ou l\'aine'),
 (284, 'Pouls superficiel'),
 (285, 'Pour les femmes, inflammation du petit bassin'),
 (286, 'Précordialgie'),
 (287, 'Psychose maniaco-dépressive'),
 (288, 'Ptôse rectale'),
 (289, 'Pusillanimité'),
-(290, 'Quand le côté gauche réagit, l''œil droit ne peut plus s''ouvrir'),
+(290, 'Quand le côté gauche réagit, l\'œil droit ne peut plus s\'ouvrir'),
 (291, 'Quand le dos est atteint, on ne peut pas se pencher en avant'),
 (292, 'Quand le ventre est atteint, on ne peut pas se pencher en arrière'),
 (293, 'Raideur linguale'),
-(294, 'Remontée d''énergie qui entraîne inquiétude et ennui'),
+(294, 'Remontée d\'énergie qui entraîne inquiétude et ennui'),
 (295, 'Respiration courte et rapide'),
 (296, 'Respiration courte et toux'),
 (297, 'Respiration faible'),
 (298, 'Respiration rapide'),
 (299, 'Respiration rapide et faible'),
 (300, 'Respiration rapide et superficielle'),
-(301, 'Rétention ou incontinence d''urine'),
+(301, 'Rétention ou incontinence d\'urine'),
 (302, 'Rhinorrhée de liquide clair'),
 (303, 'Rires incessants'),
-(304, 'S''attend à une catastrophe, toujours préoccupé'),
+(304, 'S\'attend à une catastrophe, toujours préoccupé'),
 (305, 'S’effraye facilement'),
 (306, 'Sang dans les selles'),
 (307, 'Sclérotique jaune'),
@@ -1832,17 +1806,17 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (317, 'Sensation de faim; couleur du visage et des urines devient jaune'),
 (318, 'Sensation de froid ou de chaleur à la paume des mains'),
 (319, 'Si contre-courant, enflure des testicules ou des ovaires'),
-(320, 'Si froid, pénis rétracté vers l''intérieur'),
+(320, 'Si froid, pénis rétracté vers l\'intérieur'),
 (321, 'Si il y a blessure de la bosse frontale, le pied opposé ne peu plus remuer'),
-(322, 'Si la maladie s''aggrave quand le malade se couche à plat ventre sur un plan dur, état grave de sang et de pus'),
+(322, 'Si la maladie s\'aggrave quand le malade se couche à plat ventre sur un plan dur, état grave de sang et de pus'),
 (323, 'Soif'),
 (324, 'Soif excessive'),
 (325, 'Soupirs fréquents'),
-(326, 'Spasmes de l''appareil génital'),
+(326, 'Spasmes de l\'appareil génital'),
 (327, 'Sperme froid'),
 (328, 'Sudation'),
 (329, 'Surdité'),
-(330, 'Surdité et troubles de l''audition'),
+(330, 'Surdité et troubles de l\'audition'),
 (331, 'Surexcitation et rire facile'),
 (332, 'Surexcitation mentale et physique'),
 (333, 'Sursautes aux craquements de bois'),
@@ -1857,7 +1831,7 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (342, 'Tête congestionnée'),
 (343, 'Tête lourde'),
 (344, 'Timidité'),
-(345, 'Tintement d''oreille'),
+(345, 'Tintement d\'oreille'),
 (346, 'Torticolis'),
 (347, 'Tous les ligaments du trajet sont contractés'),
 (348, 'Tous les ligaments sont contractés'),
@@ -1865,12 +1839,12 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (350, 'Toutes les articulations sans force'),
 (351, 'Toutes les peurs névrotiques (du feu, des gens, des lieux)'),
 (352, 'Toux asthmatiforme avec sang nécessitant la position debout'),
-(353, 'Toux avec envie d''uriner'),
+(353, 'Toux avec envie d\'uriner'),
 (354, 'Toux avec hémoptysie'),
 (355, 'Toux et nez bouché'),
 (356, 'Transpiration'),
 (357, 'Transpiration au front'),
-(358, 'Transpiration avec pollakiurie et diminution de l''appétit'),
+(358, 'Transpiration avec pollakiurie et diminution de l\'appétit'),
 (359, 'Transpiration brusque'),
 (360, 'Transpiration nocturne'),
 (361, 'Transpiration spontanée pendant la journée'),
@@ -1906,10 +1880,10 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (391, 'Douleur et œdème du 5ème orteil'),
 (392, 'Douleur et œdème du talon'),
 (393, 'Creux poplité contracté'),
-(394, 'Colonne vertébrale pliée à l''envers'),
+(394, 'Colonne vertébrale pliée à l\'envers'),
 (395, 'Muscles et ligaments de la nuques raidis'),
-(396, 'Impossibilité de lever l''épaule'),
-(397, 'Douleur tractive et filiforme de l''aisselle et du creux sus-claviculaire'),
+(396, 'Impossibilité de lever l\'épaule'),
+(397, 'Douleur tractive et filiforme de l\'aisselle et du creux sus-claviculaire'),
 (398, 'Peï du 2ème mois de printemps'),
 (399, 'Mictions fréquentes en grande quantité'),
 (400, 'Convulsion épileptiforme, surtout chez les enfants'),
@@ -1934,23 +1908,23 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 (419, 'Blocage du diaphragme et dyspnée'),
 (420, 'Colites et douleur abdominale aiguë qui reste en bas'),
 (421, 'Désordres gynécologiques'),
-(422, 'Trouble de l''avers localisé au menton'),
-(423, 'Fatigue de la région lombaire, donne l''impression d''être assis dans de l''eau froide'),
+(422, 'Trouble de l\'avers localisé au menton'),
+(423, 'Fatigue de la région lombaire, donne l\'impression d\'être assis dans de l\'eau froide'),
 (424, 'Douleur oculaire avec rougeur (œil grand ouvert)'),
 (425, 'Agitation diurne'),
-(426, 'Pied ouvert sur l''externe'),
+(426, 'Pied ouvert sur l\'externe'),
 (427, 'Fatigue des membres inférieurs'),
 (428, 'Goutte'),
 (429, 'Leucorrhée'),
 (430, 'Prolapsus utérin'),
 (431, 'Rhumatismes généralisés'),
-(432, 'Ventre gonflé et tendu comme la peau d''un tambour'),
+(432, 'Ventre gonflé et tendu comme la peau d\'un tambour'),
 (433, 'Contracture de la face externe du membre inférieur'),
-(434, 'Douleur lombaire irradiante vers les organes sexuels et l''aine'),
+(434, 'Douleur lombaire irradiante vers les organes sexuels et l\'aine'),
 (435, 'Hypersomnie'),
 (436, 'Agitation nocturne'),
 (437, 'Œil fermé'),
-(438, 'Pied tourné vers l''intérieur'),
+(438, 'Pied tourné vers l\'intérieur'),
 (439, 'Asthénie'),
 (440, 'Alternance de froid et chaud'),
 (441, 'Douleur cardiaque et thoracique'),
@@ -1968,20 +1942,11 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 -- Structure de la table `symptPatho`
 --
 
-CREATE TABLE IF NOT EXISTS `symptPatho` (
+CREATE TABLE `symptPatho` (
   `idS` int(11) NOT NULL,
   `idP` int(11) NOT NULL,
-  `aggr` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Vrai si symptôme d''aggravation',
-  PRIMARY KEY (`idS`,`idP`)
+  `aggr` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Vrai si symptôme d''aggravation'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- RELATIONS POUR LA TABLE `symptPatho`:
---   `idP`
---       `patho` -> `idP`
---   `idS`
---       `symptome` -> `idS`
---
 
 --
 -- Contenu de la table `symptPatho`
@@ -2522,6 +2487,79 @@ INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
 (447, 112, 0),
 (448, 113, 0);
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `keySympt`
+--
+ALTER TABLE `keySympt`
+  ADD PRIMARY KEY (`idK`,`idS`);
+
+--
+-- Index pour la table `keywords`
+--
+ALTER TABLE `keywords`
+  ADD PRIMARY KEY (`idK`);
+
+--
+-- Index pour la table `meridien`
+--
+ALTER TABLE `meridien`
+  ADD PRIMARY KEY (`code`),
+  ADD KEY `element` (`element`);
+
+--
+-- Index pour la table `patho`
+--
+ALTER TABLE `patho`
+  ADD PRIMARY KEY (`idP`),
+  ADD KEY `code` (`mer`);
+
+--
+-- Index pour la table `pathoType`
+--
+ALTER TABLE `pathoType`
+  ADD PRIMARY KEY (`idType`),
+  ADD KEY `mer` (`type`);
+
+--
+-- Index pour la table `symptome`
+--
+ALTER TABLE `symptome`
+  ADD PRIMARY KEY (`idS`);
+
+--
+-- Index pour la table `symptPatho`
+--
+ALTER TABLE `symptPatho`
+  ADD PRIMARY KEY (`idS`,`idP`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `keywords`
+--
+ALTER TABLE `keywords`
+  MODIFY `idK` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du mot clef', AUTO_INCREMENT=347;
+--
+-- AUTO_INCREMENT pour la table `patho`
+--
+ALTER TABLE `patho`
+  MODIFY `idP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+--
+-- AUTO_INCREMENT pour la table `pathoType`
+--
+ALTER TABLE `pathoType`
+  MODIFY `idType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT pour la table `symptome`
+--
+ALTER TABLE `symptome`
+  MODIFY `idS` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id du symptome', AUTO_INCREMENT=449;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
