@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="2beefree" />
+		<title>Recherche critère</title>
+		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<div class="corps">
+			<h2>Résultat de la recherche :</h2>
+			<p>Critères sélectionnés :{foreach from=$list_meridienCoche item=meridien}{$meridien}, {/foreach}{foreach from=$list_typeCoche item=type}{$type}, {/foreach}{foreach from=$list_caractCoche item=caract}{$caract}, {/foreach} </p>
+			<h3>Pathologies trouvées :</h3>
+			<ul>
+				{foreach from=$list_patho item=patho}
+				<li><a href="./pathologie" target="blank">{$patho.desc}</a></li>
+				{/foreach}
+			</ul>
+		</div>
+	</body>
+</html>

@@ -106,6 +106,8 @@ li{
 .deroule{
 	cursor: pointer;
 	display: block;
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
 .deroule:hover{
