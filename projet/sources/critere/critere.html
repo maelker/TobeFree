@@ -4,13 +4,13 @@
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
 		<title>Recherche critère</title>
-		<link href="../CSS/styleMain.css" rel="stylesheet" type="text/css"/>
-		<script type="text/javascript" src="../scriptMain.js"></script>
+		<link href="sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="sources/scriptMain.js"></script>
 	</head>
 	<body>
 		<div>
 			<a href="./accueil">
-				<img src="../images/logo.jpg"><h1>Nom site</h1>
+				<img src="sources/images/logo.jpg"><h1>Nom site</h1>
 			</a>
 		</div>
 		<div class="menu">
@@ -26,19 +26,19 @@
 		<div class="corps">
 			<h2>Recherche de pathologie par critère</h2>
 			<form method="post" action="" >
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'meridien')"><img src="../images/flecheBas.png" width="25" height="25"> Selection du méridien</span>
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'meridien')"><img src="sources/images/flecheBas.png" width="25" height="25"> Selection du méridien</span>
 				<fieldset id="meridien">
 					{foreach from=$list_meridien item=meridien}
 						<label><input type="checkbox" name="{$meridien.nom}">{$meridien.nom}</label>
 					{/foreach}
 				</fieldset>
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'type')"><img src="../images/flecheBas.png" width="25" height="25">Selection du type de pathologie</span>
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'type')"><img src="sources/images/flecheBas.png" width="25" height="25">Selection du type de pathologie</span>
 				<fieldset id="type">
 					{foreach from=$list_type item=listtype}
 						<label><input type="checkbox" name="{$listtype.type}">{$listtype.type}</label>
 					{/foreach}
 				</fieldset>
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'caract')"><img src="../images/flecheBas.png" width="25" height="25">Selection des caractéristiques</span>
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'caract')"><img src="sources/images/flecheBas.png" width="25" height="25">Selection des caractéristiques</span>
 				<fieldset id="caract">
 					{foreach from=$list_carac item=listcarac}
 						<label><input type="checkbox" name="{$listcarac.carac}">{$listcarac.carac}</label>

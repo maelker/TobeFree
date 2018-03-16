@@ -1,7 +1,7 @@
 <?php
 
 //mon index.php se trouve dans projet
-require("/var/www/html/projet/lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
+require("lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
 $smarty = new Smarty();
 // var_dump($_GET);   //DEBUG
 
@@ -16,7 +16,7 @@ if($url == '') {
 } elseif($url[0]=='accueil') {
 		$smarty->display("sources/accueil/page_accueil.html");	
 } elseif($url[0]=='critere') {
-		$smarty->display("sources/critere/critere.html");	
+		require "sources/critere/requete_symptome.php";	
 } elseif($url[0]=='inscription') {
 		require 'sources/inscription/inscription.php';  //url=localhost/projet/inscription	
 } elseif($url[0]=='symptome') {

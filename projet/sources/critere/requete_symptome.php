@@ -44,16 +44,16 @@ $query3->closeCursor();
 
 
 // On lance et configure Smarty
-require("../../lib/smarty/Smarty.class.php");
+//require("lib/smarty/Smarty.class.php");
 $tpl = new Smarty();
-$tpl->compile_dir = '../../templates_c/';
+$tpl->compile_dir = 'templates_c/';
 
 //assignation et affichage de la liste de critère
 $tpl->assign('list_meridien', $list_meridien);
 $tpl->assign('list_type', $list_type);
 $tpl->assign('list_carac', $list_carac);
 
-$tpl->display("critere.html");
+$tpl->display("sources/critere/critere.html");
 
 
 
@@ -197,7 +197,7 @@ if ( isset($_POST['valider']) )
 
 	//assignation et affichage des pathologies trouvées
 	$tpl->assign('list_patho', $list_patho);
-	$tpl->display("resultat.html");
+	$tpl->display("sources/critere/resultat.html");
 }
 
 ?>
