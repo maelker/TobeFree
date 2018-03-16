@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
 		<title>Recherche symptome</title>
-		<link href="sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
+		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
 		<link href="symptomeStyle.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
@@ -27,49 +27,18 @@
 			<h2>Recherche de pathologie par symptomes</h2>
 			<form method="post" action="">
 				<p>Entrez un mot clé du symptome recherché</p>
-				<input type="search" name="keyword" placeholder="mot-clé" size="50">
+				<input type="search" name="keyword" placeholder="mot-clé1,mot-clé2,mot-clé3,etc." size="50">
 				<input type="submit" name="recherche" class="search" value="rechercher">
-			</form>
-			<form method="post" action="" >
+			</form>	
+			<form method="post" action="" >	
 				<fieldset>
-
-					<legend>{$mot_cle_affiche}</legend>
+					<legend>Mots clés sélectionnés :{foreach from=$mot_cle_affiche item=mot} {$mot},{/foreach}</legend>
 					{foreach from=$list_symptome item=symptome}
 						<label><input type="checkbox" name="{$symptome.desc}">{$symptome.desc}</label>
 					{/foreach}
-
 				</fieldset>
-			
-			</form>
-
-			<form method="post" action="">
-				<p>Entrez un mot clé du symptome recherché</p>
-				<input type="search" name="keyword2" placeholder="mot-clé" size="50">
-				<input type="submit" name="recherche2" class="search" value="rechercher">
-			</form>
-			<form method="post" action="" >
-				<fieldset>
-
-					<legend>{$mot_cle_affiche2}</legend>
-					{foreach from=$list_symptome2 item=symptome2}
-						<label><input type="checkbox" name="{$symptome2.desc}">{$symptome2.desc}</label>
-					{/foreach}
-
-				</fieldset>
-			
-			</form>
-
-			<form>
 				<input type="submit" name="valider" class="valider">
 			</form>
-			<div>
-				<h3>Résultat de la recherche</h3>
-				<ul>
-					<li><a href="./pathologie" target="blank">Pathologie1</a></li>
-					<li><a href="./pathologie" target="blank">Pathologie2</a></li>
-					<li><a href="./pathologie" target="blank">Pathologie3</a></li>
-				</ul>
-			</div>
 		</div>
 	</body>
 </html>
