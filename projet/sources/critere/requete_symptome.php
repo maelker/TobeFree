@@ -98,84 +98,101 @@ if ( isset($_POST['valider']) )
 	}
 	$tpl->assign('list_caractCoche', $caract_coche);
 	
-	//recupération des idMeridien pour les meridiens dans la bdd
-	$i = 0;
-	$list_meridienId = array();
-	for ($j=0; $j < count($meridien_coche); $j++) { 
-		if (isset($meridien_coche[$j])){
-			$query4 = $connexion->prepare("SELECT code FROM meridien WHERE nom='$meridien_coche[$j]'");
-			$query4->execute();
-			while($data4 = $query4->fetch()){
-			    $list_meridienId[$i] = $data4['code'];
-			    $i++;
-			}
-			$query4->closeCursor();
-		}
-	}
-
-	//recuperation des idType pour les types dans la bdd
-	$i = 0;
-	$list_typeId = array();
-	for ($j=0; $j < count($type_coche); $j++) { 
-		if (isset($type_coche[$j])){
-			$query4 = $connexion->prepare("SELECT codeType FROM `pathoType` WHERE type='$type_coche[$j]'");
-			$query4->execute();
-			while($data4 = $query4->fetch()){
-			    $list_typeId[$i] = $data4['codeType'];
-			    $i++;
-			}
-			$query4->closeCursor();
-		}
-	}
-
-	//recuperation des idCaract pour les caractéristiques dans la bdd
-	$i = 0;
-	$list_caractId = array();
-	for ($j=0; $j < count($caract_coche); $j++) { 
-		if (isset($caract_coche[$j])){
-			$query4 = $connexion->prepare("SELECT codeType FROM `pathoType` WHERE carac='$caract_coche[$j]'");
-			$query4->execute();
-			while($data4 = $query4->fetch()){
-			    $list_caractId[$i] = $data4['codeType'];
-			    $i++;
-			}
-			$query4->closeCursor();
-		}
-	}
-
-	//recuperation des pathologie à partir des idType dans la bdd	
+	//requete de recuperation des pathologie à partire des critères cochés
 	$i = 0;
 	$list_patho = array();
-	for ($j=0; $j < count($list_typeId); $j++) { 
-		$query5 = $connexion->prepare("SELECT patho.desc FROM `patho` WHERE type='$list_typeId[$j]'");
-		$query5->execute();
-		while($data5 = $query5->fetch()){
-		    $list_patho[$i]['desc'] = $data5['desc'];
-		    $i++;
+	if(count($meridien_coche)!=0 && count($type_coche)!=0 && count($caract_coche)!=0)
+	{
+		for ($j=0; $j < count($meridien_coche); $j++) { 
+			for ($k=0; $k < count($type_coche); $k++) { 
+				for ($l=0; $l < count($caract_coche); $l++) { 
+					$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( meridien.nom='$meridien_coche[$j]'  OR pathoType.carac='$caract_coche[$l]' OR pathoType.type='$type_coche[$k]') ");
+					$query5->execute();
+					while($data5 = $query5->fetch()){
+					    $list_patho[$i]['desc'] = $data5['desc'];
+					    $i++;
+					}
+					$query5->closeCursor();
+				}
+			}
 		}
-		$query5->closeCursor();
 	}
-	
-	//recuperation des pathologie à partir des idMeridien dans la bdd
-	for ($j=0; $j < count($list_meridienId); $j++) { 
-		$query5 = $connexion->prepare("SELECT patho.desc FROM `patho` WHERE mer='$list_meridienId[$j]'");
-		$query5->execute();
-		while($data5 = $query5->fetch()){
-		    $list_patho[$i]['desc'] = $data5['desc'];
-		    $i++;
+	elseif (count($meridien_coche)!=0 && count($type_coche)!=0 && count($caract_coche)==0) {
+		for ($j=0; $j < count($meridien_coche); $j++) { 
+			for ($k=0; $k < count($type_coche); $k++) { 
+				$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( meridien.nom='$meridien_coche[$j]'  OR pathoType.type='$type_coche[$k]') ");
+				$query5->execute();
+				while($data5 = $query5->fetch()){
+				    $list_patho[$i]['desc'] = $data5['desc'];
+				    $i++;
+				}
+				$query5->closeCursor();
+			}
 		}
-		$query5->closeCursor();
-	}	
-
-	//recuperation des pathologie à partir des idCaract dans la bdd
-	for ($j=0; $j < count($list_caractId); $j++) { 
-		$query5 = $connexion->prepare("SELECT patho.desc FROM `patho` WHERE type='$list_caractId[$j]'");
-		$query5->execute();
-		while($data5 = $query5->fetch()){
-		    $list_patho[$i]['desc'] = $data5['desc'];
-		    $i++;
+	}
+	elseif(count($meridien_coche)!=0 && count($type_coche)==0 && count($caract_coche)!=0)
+	{
+		for ($j=0; $j < count($meridien_coche); $j++) {  
+			for ($l=0; $l < count($caract_coche); $l++) { 
+				$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( meridien.nom='$meridien_coche[$j]'  OR pathoType.carac='$caract_coche[$l]' ) ");
+				$query5->execute();
+				while($data5 = $query5->fetch()){
+				    $list_patho[$i]['desc'] = $data5['desc'];
+				    $i++;
+				}
+				$query5->closeCursor();
+			}
 		}
-		$query5->closeCursor();
+	}
+	elseif(count($meridien_coche)==0 && count($type_coche)!=0 && count($caract_coche)!=0)
+	{ 
+		for ($k=0; $k < count($type_coche); $k++) { 
+			for ($l=0; $l < count($caract_coche); $l++) { 
+				$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( pathoType.carac='$caract_coche[$l]' OR pathoType.type='$type_coche[$k]') ");
+				$query5->execute();
+				while($data5 = $query5->fetch()){
+				    $list_patho[$i]['desc'] = $data5['desc'];
+				    $i++;
+				}
+				$query5->closeCursor();
+			}
+		}
+	}
+	elseif(count($meridien_coche)==0 && count($type_coche)==0 && count($caract_coche)!=0)
+	{  
+		for ($l=0; $l < count($caract_coche); $l++) { 
+			$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( pathoType.carac='$caract_coche[$l]' ) ");
+			$query5->execute();
+			while($data5 = $query5->fetch()){
+			    $list_patho[$i]['desc'] = $data5['desc'];
+			    $i++;
+			}
+			$query5->closeCursor();
+		}
+	}
+	elseif(count($meridien_coche)==0 && count($type_coche)!=0 && count($caract_coche)==0)
+	{ 
+		for ($k=0; $k < count($type_coche); $k++) { 
+			$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( pathoType.type='$type_coche[$k]') ");
+			$query5->execute();
+			while($data5 = $query5->fetch()){
+			    $list_patho[$i]['desc'] = $data5['desc'];
+			    $i++;
+			}
+			$query5->closeCursor();
+		}
+	}
+	elseif(count($meridien_coche)!=0 && count($type_coche)==0 && count($caract_coche)==0)
+	{
+		for ($j=0; $j < count($meridien_coche); $j++) {  
+			$query5 = $connexion->prepare("SELECT DISTINCT patho.desc FROM patho,meridien,pathoType WHERE patho.mer=meridien.code AND pathoType.codeType=patho.type AND( meridien.nom='$meridien_coche[$j]' ) ");
+			$query5->execute();
+			while($data5 = $query5->fetch()){
+			    $list_patho[$i]['desc'] = $data5['desc'];
+			    $i++;
+			}
+			$query5->closeCursor();
+		}
 	}
 
 	//assignation et affichage des pathologies trouvées
