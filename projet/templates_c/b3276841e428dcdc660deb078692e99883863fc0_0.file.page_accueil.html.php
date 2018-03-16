@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-03-09 16:26:12
+/* Smarty version 3.1.30, created on 2018-03-16 14:37:18
   from "/var/www/html/projet/sources/accueil/page_accueil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5aa2a794d73715_76176597',
+  'unifunc' => 'content_5aabc88e822942_80884079',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3276841e428dcdc660deb078692e99883863fc0' => 
     array (
       0 => '/var/www/html/projet/sources/accueil/page_accueil.html',
-      1 => 1520609160,
+      1 => 1521207045,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa2a794d73715_76176597 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aabc88e822942_80884079 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -28,7 +28,7 @@ function content_5aa2a794d73715_76176597 (Smarty_Internal_Template $_smarty_tpl)
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
 		<title>Page Accueil</title>
-		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
+		<link href="sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div>

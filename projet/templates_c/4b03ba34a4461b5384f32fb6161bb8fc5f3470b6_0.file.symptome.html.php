@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-03-09 13:07:52
+/* Smarty version 3.1.30, created on 2018-03-16 14:21:21
   from "/var/www/html/projet/sources/symptome/symptome.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5aa27918a15b61_30400411',
+  'unifunc' => 'content_5aabc4d1eb63c9_40093511',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b03ba34a4461b5384f32fb6161bb8fc5f3470b6' => 
     array (
       0 => '/var/www/html/projet/sources/symptome/symptome.html',
-      1 => 1520236068,
+      1 => 1521205527,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa27918a15b61_30400411 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aabc4d1eb63c9_40093511 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -49,21 +49,24 @@ function content_5aa27918a15b61_30400411 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="corps">
 			<h2>Recherche de pathologie par symptomes</h2>
-			<form method="post" action="" >
+			<form method="post" action="">
 				<p>Entrez un mot clé du symptome recherché</p>
 				<input type="search" name="keyword" placeholder="mot-clé" size="50">
 				<input type="submit" name="recherche" class="search" value="rechercher">
 			</form>
 			<form method="post" action="" >
 				<fieldset>
-					<legend>mot-clé 1</legend>
+
+					<legend><?php echo $_smarty_tpl->tpl_vars['mot_cle_affiche']->value;?>
+</legend>
 					<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_symptome']->value, 'symptome');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['symptome']->value) {
 ?>
-						<label><input type="checkbox" name="symptome1"><?php echo $_smarty_tpl->tpl_vars['symptome']->value['desc'];?>
- 1</label>
+						<label><input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['symptome']->value['desc'];?>
+"><?php echo $_smarty_tpl->tpl_vars['symptome']->value['desc'];?>
+</label>
 					<?php
 }
 }
@@ -72,11 +75,39 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 
 				</fieldset>
+			
+			</form>
+
+			<form method="post" action="">
+				<p>Entrez un mot clé du symptome recherché</p>
+				<input type="search" name="keyword2" placeholder="mot-clé" size="50">
+				<input type="submit" name="recherche2" class="search" value="rechercher">
+			</form>
+			<form method="post" action="" >
 				<fieldset>
-					<legend>mot-clé 2</legend>
-					<label><input type="checkbox" name="symptome3">Symptome 3</label>
-					<label><input type="checkbox" name="symptome4">Symptome 4</label>
+
+					<legend><?php echo $_smarty_tpl->tpl_vars['mot_cle_affiche2']->value;?>
+</legend>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_symptome2']->value, 'symptome2');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['symptome2']->value) {
+?>
+						<label><input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['symptome2']->value['desc'];?>
+"><?php echo $_smarty_tpl->tpl_vars['symptome2']->value['desc'];?>
+</label>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+
 				</fieldset>
+			
+			</form>
+
+			<form>
 				<input type="submit" name="valider" class="valider">
 			</form>
 			<div>

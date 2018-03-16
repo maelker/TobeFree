@@ -11,7 +11,7 @@ Main line command:
 			- git clone https://github.com/maelker/TobeFree
 		
 		Add files:
-			- git add * ou git add <files>
+			- git add * ou git add <files> ou git rm <files>
 			- git commit -m "Modification of some/those folders"
 			- git push origin master
 		
