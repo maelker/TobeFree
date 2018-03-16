@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2018 at 04:45 PM
+-- Generation Time: Mar 16, 2018 at 04:51 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
--- PHP Version: 7.0.25-0ubuntu0.16.04.1
+-- PHP Version: 5.6.33-3+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -1267,6 +1267,7 @@ CREATE TABLE `membres` (
   `date_enregistrement` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
 -- --------------------------------------------------------
 
 --
@@ -1458,14 +1459,14 @@ CREATE TABLE `pathoType` (
 INSERT INTO `pathoType` (`idType`, `codeType`, `type`, `carac`) VALUES
 (1, 'me', 'méridien', 'externe'),
 (2, 'mi', 'méridien', 'interne'),
-(3, 'lp', 'voie luo', 'pleine'),
+(3, 'lp', 'voie luo', ' pleine'),
 (4, 'lv', 'voie luo', 'vide'),
 (5, 'j', 'jing jin', ''),
 (6, 'tfp', 'zang', 'plein'),
 (7, 'tfv', 'zang', 'vide'),
 (8, 'tfc', 'zang', 'chaud'),
 (9, 'tff', 'zang', 'froid'),
-(10, 'tfp', 'fu', 'plein'),
+(10, 'tfp', 'fu', ' plein'),
 (11, 'tfv', 'fu', ' vide'),
 (12, 'tfc', 'fu', 'chaud'),
 (13, 'tff', 'fu', 'froid'),
@@ -2516,7 +2517,6 @@ ALTER TABLE `keySympt`
 --
 ALTER TABLE `keywords`
   ADD PRIMARY KEY (`idK`);
-
 --
 -- Indexes for table `membres`
 --
