@@ -11,9 +11,10 @@
 			<div>
 				<h3>Résultat de la recherche</h3>
 				<ul>
-					<li><a href="./pathologie" target="blank">Pathologie1</a></li>
-					<li><a href="./pathologie" target="blank">Pathologie2</a></li>
-					<li><a href="./pathologie" target="blank">Pathologie3</a></li>
+					{foreach from=$list_patho item=patho}
+					<li><a href="./pathologie" target="blank">{$patho.desc}</a></li>
+					{/foreach}
+					
 				</ul>
 			</div>
 	</body>
