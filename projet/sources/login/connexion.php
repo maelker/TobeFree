@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
-		<title>Inscription</title>
+		<title>Connexion</title>
 		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
 
     <script type='text/javascript' src='verif.js'></script>
@@ -34,6 +34,10 @@
 					<br>Password<br>
 					<input type="password" id ="pass" name="pass">
 					<input type="submit" value="Connexion">
+					</form>
+					
+					<form action ="deconnexion">Deconnexion<br>
+					<input type ="submit" value ="deconnexion">
 					</form></div>
 		</div>
 	</body>
@@ -47,41 +51,50 @@
 <?php 
 
 //On récupère le mail et de mot de passe du formulaire
-$pseudo = filter_input(INPUT_POST, 'pseudo');
-$pass = filter_input(INPUT_POST, 'pass');
-
- 
+        $pseudo = filter_input(INPUT_GET, 'pseudo');
+        $pass = filter_input(INPUT_GET, 'pass');
+if (isset($pseudo,$pass)) 
+{  
 	
-$pseudo = trim($pseudo) != '' ? $pseudo : null;
-$pass = trim($pass) != '' ? $pass : null;
-	
-try{
-	$connexion = new PDO('mysql: host=localhost;dbname = acuBD; charset = utf8','root','root');
-}
-catch(Exeption $e){
-	die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo()));
-}
+	$pseudo = trim($pseudo) != '' ? $pseudo : null;
+	$pass = trim($pass) != '' ? $pass : null;
+        
+        $connexion = null;
+	try{
+		//$connexion = new PDO('mysql:host=localhost;dbname = acuBD; charset = utf8','root','root');
+		$connexion = new PDO('mysql:host=localhost;dbname=acuBD', 'root','root');
+	}
+	catch(Exeption $e){
+		die('Erreur : ' .$e->getMessage()) or die(print_r($connexion->errorInfo()));
+	}
+        
 
-$req = $connexion->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
-$req->execute(array('pseudo' => $pseudo));
-$resultat = $req->fetch();
 
-// Comparaison du pass envoyé via le formulaire avec la base
+	$req = $connexion->prepare("SELECT `id`,`pass` FROM `membres` WHERE `pseudo` = :pseudo");
+	$req->execute(array('pseudo' => $pseudo));
+	$resultat = $req->fetch();
 
-$pass_hach = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+	//Comparaison du pass envoyé via le formulaire avec la base
+	$isPasswordCorrect = password_verify($pass, $resultat['pass']);
 
-if ($pass_hach != $resultat[0])
-{
-		echo 'Mauvais identifiant ou mot de passe !';
-}
-else
-{
-	session_start();
-	$_SESSION['id'] = $resultat['id'];
-	$_SESSION['pseudo'] = $pseudo;
-	echo 'Vous êtes connecté !';
-}
-
+	if (!$resultat)
+	{
+			echo 'Mauvais identifiant ou mot de passe !';
+	}
+	else
+	{
+			if ($pass == $resultat['pass']) {
+					session_start();
+					$_SESSION['id'] = $resultat['id'];
+					$_SESSION['pseudo'] = $pseudo;
+					echo 'Vous êtes connecté !';
+					setcookie($pseudo, $pass, time() + 365*24*3600, null, null, false, true);
+			}
+			else {
+					echo 'Tu es une nouille!';
+			}
+	}
+}	
 
 ?>
 
