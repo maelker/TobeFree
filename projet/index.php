@@ -20,9 +20,12 @@ if($url == '') {
 } elseif($url[0]=='inscription') {
 		require 'sources/inscription/inscription.php';  //url=localhost/projet/inscription	
 } elseif($url[0]=='symptome') {
-		$smarty->display("sources/symptome/symptome.html");
+		require "sources/symptome/requete_motcle.php";
 } elseif($url[0]=='pathologie') {
-		$smarty->display("sources/pathologie/pathologie.html");	
+		if (isset($url[1]) && $url[1]!="") {
+			$patho=$url[1];
+			require "sources/pathologie/pathologie.php";
+		}	
 } elseif($url[0]=='information') {
 		$smarty->display("sources/info/information.html");
 } elseif($url[0]=='connexion') {
