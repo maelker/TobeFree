@@ -31,5 +31,8 @@ if($url == '') {
 } elseif($url[0]=='connexion') {
 		require 'sources/login/connexion.php';  //url=localhost/projet/connexion	
 }
+elseif($url[0]=='RSS') {
+		require 'sources/RSS/rss.xml';  //url=localhost/projet/connexion	
+}
 
 ?>
