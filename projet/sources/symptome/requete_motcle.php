@@ -15,10 +15,13 @@ $tpl = new Smarty();
 $tpl->compile_dir='../../templates_c/';
 
 $mot_cle_requete=array();
-$mot_cle_affiche=array();
-$tableau_mot=array();
-$list_symptome=array();
 
+$tableau_mot=array();
+/*$list_symptome=array();
+if (!is_object($list_symptome)) {
+    echo "false";
+}*/
+$tpl->display("symptome.html");
 
 
 if (isset($_POST['keyword'])){
@@ -27,6 +30,9 @@ if (isset($_POST['keyword'])){
 	$tableau_mot=explode(",",$liste_mot);
 	$tpl->assign('tableau_mot',$tableau_mot);
 	$i = 0;
+	$mot_cle_affiche=array();
+	$list_symptome=array();
+
 	for ($j=0;$j<count($tableau_mot);$j++)
 	{
 		$mot_cle_requete[$j]=$tableau_mot[$j];
@@ -46,13 +52,18 @@ if (isset($_POST['keyword'])){
 
 		}
 		
+		
 		$query1->closeCursor();
 		//$name_symptome=array();
+		
+		if(isset($mot_cle_affiche)){
+			$tpl->assign('mot_cle_affiche',$mot_cle_affiche);
+		}
+		
+		
+	}
+	if(isset($list_symptome)){
 		$tpl->assign('list_symptome', $list_symptome);
-		$tpl->assign('mot_cle_affiche',$mot_cle_affiche);
-		
-		
-		
 	}
 	$i=0;
 	foreach($list_symptome as $i => $valeur)
@@ -63,11 +74,10 @@ if (isset($_POST['keyword'])){
     echo $i;
     $compte=$i;
     $tpl->assign('compte',$compte);
-
+    $tpl->display("requetesymptome.html");
 }
 	
 
-$tpl->display("symptome.html");
 
 //GESTION PAGE AFFICHAGE_PATHOLOGIE.HTML
 //$compte=$i;

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
-		<title>Recherche symptome</title>
+		<title>affichage pathologie</title>
 		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
 		<link href="symptomeStyle.css" rel="stylesheet" type="text/css"/>
 	</head>
@@ -12,7 +12,7 @@
 				<h3>Résultat de la recherche</h3>
 				<ul>
 					{foreach from=$list_patho item=patho}
-					<li><a href="./pathologie" target="blank">{$patho.desc}</a></li>
+					<li><a href="./pathologie/" target="blank">{$patho.desc}</a></li>
 					{/foreach}
 					
 				</ul>

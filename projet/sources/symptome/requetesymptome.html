@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="2beefree" />
+		<title>affichage requete symptome</title>
+		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
+		<link href="symptomeStyle.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>	
+			<div>
+				<form method="post" action="" >	
+				<fieldset>
+					<legend>Mots clés sélectionnés :{foreach from=$mot_cle_affiche item=mot} {$mot},{/foreach}</legend>
+					{foreach from=$list_symptome item=symptome}
+						<label><input type="checkbox" name={$symptome.id} value="{$symptome.desc}">{$symptome.desc}</label>
+					{/foreach}
+				</fieldset>
+				<input type="submit" name="valider" class="valider">
+				</form>
+			</div>
+	</body>
+</html>
