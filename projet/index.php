@@ -4,7 +4,7 @@
 require("lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
 $smarty = new Smarty();
 // var_dump($_GET);   //DEBUG
-
+$smarty->display("menuglobal.html");
 $url = '';
 if(isset($_GET['url'])) {
     $url = explode('/',$_GET['url']);
@@ -34,5 +34,6 @@ if($url == '') {
 elseif($url[0]=='RSS') {
 		require 'sources/RSS/rss.xml';  //url=localhost/projet/connexion	
 }
+
 
 ?>
