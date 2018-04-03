@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+echo($_SESSION['pseudo']);
 //mon index.php se trouve dans projet
 require("lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
 $smarty = new Smarty();
@@ -30,8 +31,6 @@ if($url == '') {
 		$smarty->display("sources/info/information.html");
 } elseif($url[0]=='connexion') {
 		require 'sources/login/connexion.php';  //url=localhost/projet/connexion	
-} elseif($url[0]=='deconnexion') {
-		require 'sources/login/deconnexion.php';  //url=localhost/projet/connexion	
 }
 elseif($url[0]=='RSS') {
 		require 'sources/RSS/rss.xml';  //url=localhost/projet/connexion	
