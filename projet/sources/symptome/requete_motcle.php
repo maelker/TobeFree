@@ -21,6 +21,7 @@ $tableau_mot=array();
 if (!is_object($list_symptome)) {
     echo "false";
 }*/
+$tpl->display("menuglobal.html")
 $tpl->display("sources/symptome/symptome.html");
 
 
