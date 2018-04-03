@@ -7,12 +7,12 @@
 $connexion = new PDO('mysql:host=localhost;dbname=acuBD;charset=utf8', 'root', 'root');
 
 
-require("../../lib/smarty/Smarty.class.php");
+//require("lib/smarty/Smarty.class.php");
 
 
 $tpl = new Smarty();
 
-$tpl->compile_dir='../../templates_c/';
+$tpl->compile_dir='templates_c/';
 
 $mot_cle_requete=array();
 
@@ -21,7 +21,7 @@ $tableau_mot=array();
 if (!is_object($list_symptome)) {
     echo "false";
 }*/
-$tpl->display("symptome.html");
+$tpl->display("sources/symptome/symptome.html");
 
 
 if (isset($_POST['keyword'])){
@@ -65,16 +65,8 @@ if (isset($_POST['keyword'])){
 	if(isset($list_symptome)){
 		$tpl->assign('list_symptome', $list_symptome);
 	}
-	$i=0;
-	foreach($list_symptome as $i => $valeur)
-    {
-    	//echo $i.'<br />'; // Pour faire mumuse mais ca sert a rien de l'afficher print_r le fait bien tout seul
-    	print_r($valeur['id']);
-    }
-    echo $i;
-    $compte=$i;
-    $tpl->assign('compte',$compte);
-    $tpl->display("requetesymptome.html");
+  
+    $tpl->display("sources/symptome/requetesymptome.html");
 }
 	
 
@@ -127,7 +119,7 @@ if ( isset($_POST['valider']) )
 
 	//assignation et affichage des pathologies trouvées
 	$tpl->assign('list_patho', $list_patho);
-	$tpl->display("affichage_pathologie.html");
+	$tpl->display("sources/symptome/affichage_pathologie.html");
 }
 
 
