@@ -26,9 +26,9 @@
 			<h2>{$patho}</h2>
 			<p>Cette pathologie peut développer les symptomes suivants :</p>
 			<ul>
-				<li>symptome ...</li>
-				<li>symptome ...</li>
-				<li>...</li>
+				{foreach from=$list_symptome item=symptome}
+				<li>{$symptome.desc}</li>
+				{/foreach}
 			</ul>
 		</div>
 	</body>

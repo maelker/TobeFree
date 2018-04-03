@@ -110,6 +110,7 @@ if ( isset($_POST['valider']) )
 					$query5->execute();
 					while($data5 = $query5->fetch()){
 					    $list_patho[$i]['desc'] = $data5['desc'];
+						$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 					    $i++;
 					}
 					$query5->closeCursor();
@@ -124,6 +125,7 @@ if ( isset($_POST['valider']) )
 				$query5->execute();
 				while($data5 = $query5->fetch()){
 				    $list_patho[$i]['desc'] = $data5['desc'];
+					$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 				    $i++;
 				}
 				$query5->closeCursor();
@@ -138,6 +140,7 @@ if ( isset($_POST['valider']) )
 				$query5->execute();
 				while($data5 = $query5->fetch()){
 				    $list_patho[$i]['desc'] = $data5['desc'];
+					$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 				    $i++;
 				}
 				$query5->closeCursor();
@@ -152,6 +155,7 @@ if ( isset($_POST['valider']) )
 				$query5->execute();
 				while($data5 = $query5->fetch()){
 				    $list_patho[$i]['desc'] = $data5['desc'];
+					$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 				    $i++;
 				}
 				$query5->closeCursor();
@@ -165,6 +169,7 @@ if ( isset($_POST['valider']) )
 			$query5->execute();
 			while($data5 = $query5->fetch()){
 			    $list_patho[$i]['desc'] = $data5['desc'];
+				$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 			    $i++;
 			}
 			$query5->closeCursor();
@@ -177,6 +182,7 @@ if ( isset($_POST['valider']) )
 			$query5->execute();
 			while($data5 = $query5->fetch()){
 			    $list_patho[$i]['desc'] = $data5['desc'];
+				$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 			    $i++;
 			}
 			$query5->closeCursor();
@@ -189,6 +195,7 @@ if ( isset($_POST['valider']) )
 			$query5->execute();
 			while($data5 = $query5->fetch()){
 			    $list_patho[$i]['desc'] = $data5['desc'];
+				$list_patho[$i]['under']=str_replace(' ','_',$data5['desc']);
 			    $i++;
 			}
 			$query5->closeCursor();
