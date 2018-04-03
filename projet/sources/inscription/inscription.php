@@ -56,6 +56,7 @@
 			$pseudo = trim($pseudo) != '' ? $pseudo : null;
 			$pass = trim($pass) != '' ? $pass : null;
 			$email = trim($email) != '' ? $email : null;
+			$erreur = null;
 
 
 			/* Si $pseudo et $pass différents de null */
@@ -127,8 +128,7 @@
 					/* Résultat du comptage = 0 pour ce pseudo, on peut donc l'enregistrer */
 					{
 					
-						$pass_hach = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-						
+						$pass_hach = $_POST['passe'];						
 						/* Pour enregistrer la date actuelle (date/heure/minutes/secondes) on peut utiliser directement la fonction mysql : NOW()*/
 						$insertion = "INSERT INTO membres(pseudo,pass,email,date_enregistrement) VALUES(:nom, :password,:email, NOW())";
 						

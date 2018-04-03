@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 
 // Suppression des variables de session et de la session
 $_SESSION = array();
@@ -14,6 +14,6 @@ setcookie('login', '');
 
 echo "Vous êtes deconnecté";
 
-
+header("window.location.href = './deconnexion'");
 
 ?>
