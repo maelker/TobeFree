@@ -6,6 +6,9 @@
 
 $connexion = new PDO('mysql:host=localhost;dbname=acuBD;charset=utf8', 'root', 'root');
 
+session_start();
+if(isset($_SESSION['id'],$_SESSION['pseudo'])){
+
 
 //require("lib/smarty/Smarty.class.php");
 
@@ -21,7 +24,7 @@ $tableau_mot=array();
 if (!is_object($list_symptome)) {
     echo "false";
 }*/
-$tpl->display("menuglobal.html")
+
 $tpl->display("sources/symptome/symptome.html");
 
 
@@ -123,7 +126,10 @@ if ( isset($_POST['valider']) )
 	$tpl->display("sources/symptome/affichage_pathologie.html");
 }
 
-
+}
+else{
+	echo "on est pas co";
+}
 
 
 ?>
