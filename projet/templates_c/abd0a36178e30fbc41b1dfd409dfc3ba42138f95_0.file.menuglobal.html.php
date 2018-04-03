@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-03-16 14:37:18
-  from "/var/www/html/projet/sources/accueil/page_accueil.html" */
+/* Smarty version 3.1.30, created on 2018-04-03 17:58:47
+  from "/home/tobefree/Documents/TobeFree/projet/menuglobal.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5aabc88e822942_80884079',
+  'unifunc' => 'content_5ac3a4b795e0a8_82201132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b3276841e428dcdc660deb078692e99883863fc0' => 
+    'abd0a36178e30fbc41b1dfd409dfc3ba42138f95' => 
     array (
-      0 => '/var/www/html/projet/sources/accueil/page_accueil.html',
-      1 => 1521207045,
+      0 => '/home/tobefree/Documents/TobeFree/projet/menuglobal.html',
+      1 => 1522771126,
       2 => 'file',
     ),
   ),
@@ -20,15 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aabc88e822942_80884079 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ac3a4b795e0a8_82201132 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
-		<title>Page Accueil</title>
+		<title>Acupuncture</title>
 		<link href="sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
+		<link href="symptomeStyle.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div>
@@ -47,17 +48,6 @@ function content_5aabc88e822942_80884079 (Smarty_Internal_Template $_smarty_tpl)
 				</ul>
 			</nav>
 		</div>
-		<div class="corps">
-			<h2>Bienvenue sur notre site</h2>
-			<p>Site de l'association des acupuncteurs pour rechercher vos maladies.</p>
-			<a href="./pathologie">Pathologie</a>
-		</div>
 	</body>
-	<?php echo '<?php 
-	';?>if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-	{
-		echo 'Bonjour ' . $_SESSION['pseudo'];
-	}
-	<?php echo '?>';?>
 </html><?php }
 }

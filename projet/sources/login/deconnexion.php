@@ -14,6 +14,6 @@ setcookie('login', '');
 
 echo "Vous êtes deconnecté";
 
-header("window.location.href = './deconnexion'");
+header('./accueil');
 
 ?>

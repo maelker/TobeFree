@@ -1,30 +1,6 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="author" content="2beefree" />
-		<title>Connexion</title>
-		<link href="sources/styleMain.css" rel="stylesheet" type="text/css"/>
-
-    <script type='text/javascript' src='verif.js'></script>
-	</head>
 	<body>
-		<div>
-			<a href="./accueil">
-				<img src="sources/images/logo.jpg"><h1>Nom site</h1>
-			</a>
-		</div>
-		<div class="menu">
-			<nav>
-				<ul>
-					<li><a href="./inscription">inscription</a></li>
-					<li><a href="./critere">Recherche de pathologie par critère</a></li>
-					<li><a href="./symptome">Recherche de pathologie par symptome</a></li>
-					<li><a href="./information">Informations</a></li>
-					<li><a href="./connexion">Connexion</a></li>
-				</ul>
-			</nav>
-		</div>
 		<div class="corps">
 			
 			<div class="column" style="background-color:#bbb;">
