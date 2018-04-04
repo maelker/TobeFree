@@ -48,6 +48,14 @@ li{
 	margin: 15px;
 }
 
+.log{
+	cursor: auto;
+}
+
+.log:hover{
+	background-color: #fff;
+}
+
 .search{
 	display: inline;
 	cursor: pointer;

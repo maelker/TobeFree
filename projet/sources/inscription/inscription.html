@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="fr">
+	<body>
+		<div class="corps">
+			<form method="post" >
+				<h2>Inscription</h2>
+				<label>Pseudo: <input type="text" name="pseudo" required /></label><br/>
+				<label>Mot de passe: <input type="password" name="passe" required /></label><br/>
+				<label>Confirmation du mot de passe: <input type="password" name="passe2" required oninput="check(this)"/></label><br/>
+				<label>Adresse e-mail: <input type="email" name="email" required /></label><br/>
+				<input type="submit" value="M'inscrire"/>
+			</form>
+			<p id = "erreur">{$erreur}</p>
+		</div>
+	</body>
+</html>

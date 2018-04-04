@@ -1,29 +1,10 @@
-<!doctype html>
-<html lang="fr">
-	<body>
-		<div class="corps">
-			
-			<div class="column" style="background-color:#bbb;">
-			<h2>Titre 2</h2>
-					<form action="" method = "post">Login<br>
-					<input type="text" id= "pseudo" name="pseudo">
-					<br>Password<br>
-					<input type="password" id ="pass" name="pass">
-					<input type="submit" value="Connexion">
-					</form>
-					
-					<input type ="button" value ='logout' onclick="window.location.href = './deconnexion'" >
-					</form></div>
-		</div>
-	</body>
-	
-	
-	
-
-
-
 
 <?php 
+
+$tpl = new Smarty();
+$tpl->compile_dir='templates_c/';
+
+$tpl->display("sources/login/connexion.html");
 
 //On récupère le mail et de mot de passe du formulaire
         //$pseudo = filter_input(INPUT_GET, 'pseudo');
@@ -95,4 +76,4 @@ if (isset($pseudo,$pass))
 ?>
 
 
-</html>
+

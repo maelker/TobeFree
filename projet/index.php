@@ -1,13 +1,13 @@
 <?php
-session_start();
+//session_start();
 if(isset($_SESSION['pseudo'],$_SESSION['id'])){
 	echo("Vous etes connectés sous le pseudo : ".$_SESSION['pseudo']);
 }
 //mon index.php se trouve dans projet
 require("lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
 $smarty = new Smarty();
-// var_dump($_GET);   //DEBUG
-$smarty->display("menuglobal.html");
+$smarty->display("sources/menuglobal.html");
+
 $url = '';
 if(isset($_GET['url'])) {
     $url = explode('/',$_GET['url']);

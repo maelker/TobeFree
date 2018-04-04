@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-04 21:54:10
-  from "/home/tobefree/Documents/TobeFree/projet/menuglobal.html" */
+/* Smarty version 3.1.30, created on 2018-04-04 21:58:22
+  from "/home/tobefree/Documents/TobeFree/projet/sources/menuglobal.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ac52d628cea78_04821667',
+  'unifunc' => 'content_5ac52e5e16bba0_02132111',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'abd0a36178e30fbc41b1dfd409dfc3ba42138f95' => 
+    '1df14549d7adf63179c184e383316f2591881588' => 
     array (
-      0 => '/home/tobefree/Documents/TobeFree/projet/menuglobal.html',
-      1 => 1522871527,
+      0 => '/home/tobefree/Documents/TobeFree/projet/sources/menuglobal.html',
+      1 => 1522871875,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ac52d628cea78_04821667 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ac52e5e16bba0_02132111 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -37,7 +37,7 @@ function content_5ac52d628cea78_04821667 (Smarty_Internal_Template $_smarty_tpl)
 	<body>
 		<div>
 			<a href="./accueil">
-				<img src="sources/images/logo.jpg"><h1>Nom site</h1>
+				<img src="sources/images/logo.jpg"><h1>Acupuncture</h1>
 			</a>
 		</div>
 		<div class="menu">
