@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-03 15:37:11
+/* Smarty version 3.1.30, created on 2018-04-05 16:34:19
   from "/home/tobefree/Documents/TobeFree/projet/sources/pathologie/pathologie.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ac383876de098_21750332',
+  'unifunc' => 'content_5ac633eb6baad6_82497269',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4bb2c27e87d89d3c91123e1c9d44d2822b9e471b' => 
     array (
       0 => '/home/tobefree/Documents/TobeFree/projet/sources/pathologie/pathologie.html',
-      1 => 1522762628,
+      1 => 1522938830,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ac383876de098_21750332 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ac633eb6baad6_82497269 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="author" content="2beefree" />
-		<title><?php echo $_smarty_tpl->tpl_vars['patho']->value;?>
-</title>
+		<title>Acupuncture</title>
 		<link href="../sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
+		<?php echo '<script'; ?>
+ type="text/javascript" src="../sources/scriptMain.js"><?php echo '</script'; ?>
+>
 	</head>
 	<body>
 		<div>
-			<a href=".././accueil">
-				<img src="../sources/images/logo.jpg"><h1>Nom site</h1>
+			<a href="./accueil">
+				<img src="../sources/images/logo.jpg"><h1>Acupuncture</h1>
 			</a>
 		</div>
 		<div class="menu">
@@ -44,6 +46,7 @@ function content_5ac383876de098_21750332 (Smarty_Internal_Template $_smarty_tpl)
 					<li><a href=".././critere">Recherche de pathologie par critère</a></li>
 					<li><a href=".././symptome">Recherche de pathologie par symptome</a></li>
 					<li><a href=".././information">Informations</a></li>
+					<li><a href=".././connexion">Connexion</a></li>
 				</ul>
 			</nav>
 		</div>
