@@ -88,8 +88,7 @@ if (isset($pseudo,$pass,$email,$pass2))
 			if ($resultat == 0) 
 			/* Résultat du comptage = 0 pour ce pseudo, on peut donc l'enregistrer */
 			{
-			
-				$pass_hach = $_POST['passe'];						
+									
 				/* Pour enregistrer la date actuelle (date/heure/minutes/secondes) on peut utiliser directement la fonction mysql : NOW()*/
 				$insertion = "INSERT INTO membres(pseudo,pass,email,date_enregistrement) VALUES(:nom, :password,:email, NOW())";
 				
@@ -98,7 +97,7 @@ if (isset($pseudo,$pass,$email,$pass2))
 				$insert_prep = $connect->prepare($insertion);
 				
 				/* Exécution de la requête en passant les marqueurs et leur variables associées dans un tableau*/
-				$inser_exec = $insert_prep->execute(array(':nom'=>$pseudo,':password'=>$pass_hach,':email'=>$email));
+				$inser_exec = $insert_prep->execute(array(':nom'=>$pseudo,':password'=>$pass,':email'=>$email));
 				
 				/* Si l'insertion s'est faite correctement...*/
 				if ($inser_exec === true) 
