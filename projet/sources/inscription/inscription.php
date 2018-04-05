@@ -21,7 +21,7 @@ if (isset($pseudo,$pass,$email,$pass2))
 
 
 	/* Si $pseudo et $pass différents de null */
-	if(isset($pseudo,$pass,$pass2,$email)) 
+	if(!isset($pseudo,$pass,$pass2,$email)) 
 	{
 		function verif_email($email)
 		{
