@@ -128,7 +128,7 @@ if ( isset($_POST['valider']) )
 
 }
 else{
-	echo "on est pas co";
+	echo "vous n'êtes pas connecté";
 }
 
 
