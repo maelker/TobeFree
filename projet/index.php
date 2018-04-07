@@ -44,7 +44,10 @@ if($url == '') {
 }
 elseif($url[0]=='RSS') {
 	$smarty->display("sources/menuglobal.html");
-	require 'sources/RSS/rss.xml';  //url=localhost/projet/connexion	
+	require 'sources/RSS/rss.xml'; 	
+}elseif($url[0]=='deconnexion') {
+	$smarty->display("sources/menuglobal.html");
+	require 'sources/login/deconnexion.php'; 	
 }
 
 
