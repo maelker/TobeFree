@@ -6,7 +6,7 @@
 
 $connexion = new PDO('mysql:host=localhost;dbname=acuBD;charset=utf8', 'root', 'root');
 
-session_start();
+//session_start();
 if(isset($_SESSION['id'],$_SESSION['pseudo'])){
 
 
@@ -128,7 +128,7 @@ if ( isset($_POST['valider']) )
 
 }
 else{
-	echo "vous n'êtes pas connecté";
+	echo "<h2>Recherche de pathologie par symptomes</h2><p>Vous devez être connecté pour accèder à ce service.</p>";
 }
 
 

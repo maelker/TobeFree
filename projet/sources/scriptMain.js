@@ -12,7 +12,6 @@ function toggleDisplay(element,id){
 
 function check(input) {
 
-
 	  if (input.value != document.getElementById('passe').value) {
 		input.setCustomValidity('Les deux mots de passe ne correspondent pas.');
 		 alert("MDP different");
@@ -22,3 +21,10 @@ function check(input) {
 	  }
 
 }
+
+function toggleConnexion(element){	
+	var session = '<?php echo $_SESSION["pseudo"]; ?>';
+	alert(session);
+}
+
+//window.onload=toggleConnexion;

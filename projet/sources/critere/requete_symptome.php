@@ -53,9 +53,6 @@ $tpl->assign('list_meridien', $list_meridien);
 $tpl->assign('list_type', $list_type);
 $tpl->assign('list_carac', $list_carac);
 
-$tpl->display("sources/critere/critere.html");
-
-
 
 //traitement pour le formulaire de critère
 if ( isset($_POST['valider']) )
@@ -206,5 +203,7 @@ if ( isset($_POST['valider']) )
 	$tpl->assign('list_patho', $list_patho);
 	$tpl->display("sources/critere/resultat.html");
 }
+
+$tpl->display("sources/critere/critere.html");
 
 ?>

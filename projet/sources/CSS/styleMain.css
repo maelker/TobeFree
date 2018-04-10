@@ -13,6 +13,7 @@ h1{
 	text-align: center;
 	padding-top: 100px;
 	margin-top: 0px;
+	text-decoration: none;
 }
 
 div{
@@ -46,6 +47,11 @@ label:hover{
 
 li{
 	margin: 15px;
+}
+
+.head a{
+	text-decoration: none;
+	color: black;
 }
 
 .log{
@@ -105,6 +111,24 @@ li{
 	color: #fff;
 	text-decoration: none;
 	padding: 15px;
+}
+
+.menu nav{
+	display: inline-block;
+}
+
+.menu p{
+	display: inline-block;
+	text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: white;
+    list-style: none;
+	padding: 15px;
+	margin: 0;
+	float: right;
 }
 
 .corps{

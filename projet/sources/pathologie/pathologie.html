@@ -9,20 +9,21 @@
 	</head>
 	<body>
 		<div>
-			<a href="./accueil">
+			<a href="./../accueil">
 				<img src="../sources/images/logo.jpg"><h1>Acupuncture</h1>
 			</a>
 		</div>
 		<div class="menu">
 			<nav>
 				<ul>
-					<li><a href=".././inscription">inscription</a></li>
-					<li><a href=".././critere">Recherche de pathologie par critère</a></li>
-					<li><a href=".././symptome">Recherche de pathologie par symptome</a></li>
-					<li><a href=".././information">Informations</a></li>
-					<li><a href=".././connexion">Connexion</a></li>
+					<li><a href="./../inscription">inscription</a></li>
+					<li><a href="./../critere">Recherche de pathologie par critère</a></li>
+					<li><a href="./../symptome">Recherche de pathologie par symptome</a></li>
+					<li><a href="./../information">Informations</a></li>
+					<li><a href="./../connexion">{$login}</a></li>
 				</ul>
 			</nav>
+			{if isset($pseudo)}<p>Bonjour {$pseudo} !</p>{/if}
 		</div>
 		<div class="corps">
 			<h2>{$patho}</h2>

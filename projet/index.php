@@ -1,12 +1,19 @@
 <?php
-//session_start();
-if(isset($_SESSION['pseudo'],$_SESSION['id'])){
-	echo("Vous etes connectés sous le pseudo : ".$_SESSION['pseudo']);
-}
+
 //mon index.php se trouve dans projet
 require("lib/smarty/Smarty.class.php"); // On inclut la classe Smarty
 $smarty = new Smarty();
 
+session_start();
+if(isset($_SESSION['pseudo'],$_SESSION['id'])){
+	$smarty->assign('pseudo', $_SESSION['pseudo']);
+	$smarty->assign('login', "Déconnexion");
+}
+else
+{
+	$smarty->assign('login', "Connexion");
+
+}
 
 $url = '';
 if(isset($_GET['url'])) {

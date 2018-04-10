@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 
 // Suppression des variables de session et de la session
 $_SESSION = array();
@@ -12,8 +12,6 @@ setcookie('login', '');
 
 //setcookie('pass_hache', '');
 
-echo "Vous êtes deconnecté";
-
-header('./accueil');
+echo "<script>alert('Vous êtes maintenant déconnecté !');window.location.replace(\"..\");</script>";
 
 ?>
