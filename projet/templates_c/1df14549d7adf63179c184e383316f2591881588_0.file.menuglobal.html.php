@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-10 18:50:54
+/* Smarty version 3.1.30, created on 2018-04-10 20:29:15
   from "/home/tobefree/Documents/TobeFree/projet/sources/menuglobal.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5acceb6e58e8c7_79308949',
+  'unifunc' => 'content_5acd027bf32b50_71690157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1df14549d7adf63179c184e383316f2591881588' => 
     array (
       0 => '/home/tobefree/Documents/TobeFree/projet/sources/menuglobal.html',
-      1 => 1523379010,
+      1 => 1523384935,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5acceb6e58e8c7_79308949 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5acd027bf32b50_71690157 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -31,7 +31,7 @@ function content_5acceb6e58e8c7_79308949 (Smarty_Internal_Template $_smarty_tpl)
 		<link href="sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
 		<link href="symptomeStyle.css" rel="stylesheet" type="text/css"/>
 		<?php echo '<script'; ?>
- type="text/javascript" src="sources/scriptMain.js"><?php echo '</script'; ?>
+ type="text/javascript" src="sources/JS/scriptMain.js"><?php echo '</script'; ?>
 >
 	</head>
 	<body>

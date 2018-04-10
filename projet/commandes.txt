@@ -1,3 +1,0 @@
-  mkdir templates_c
-  chmod 775 templates_c
-  chown www-data templates_c
