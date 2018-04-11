@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-10 19:14:52
+/* Smarty version 3.1.30, created on 2018-04-11 20:38:33
   from "/home/tobefree/Documents/TobeFree/projet/sources/pathologie/pathologie.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5accf10cded932_31455387',
+  'unifunc' => 'content_5ace5629090e16_96912709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4bb2c27e87d89d3c91123e1c9d44d2822b9e471b' => 
     array (
       0 => '/home/tobefree/Documents/TobeFree/projet/sources/pathologie/pathologie.html',
-      1 => 1523380488,
+      1 => 1523471649,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5accf10cded932_31455387 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ace5629090e16_96912709 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -30,13 +30,13 @@ function content_5accf10cded932_31455387 (Smarty_Internal_Template $_smarty_tpl)
 		<title>Acupuncture</title>
 		<link href="../sources/CSS/styleMain.css" rel="stylesheet" type="text/css"/>
 		<?php echo '<script'; ?>
- type="text/javascript" src="../sources/scriptMain.js"><?php echo '</script'; ?>
+ type="text/javascript" src="../sources/JS/scriptMain.js"><?php echo '</script'; ?>
 >
 	</head>
 	<body>
 		<div>
 			<a href="./../accueil">
-				<img src="../sources/images/logo.jpg"><h1>Acupuncture</h1>
+				<img src="../sources/images/logo.jpg" alt="Logo Acupuncture"><h1>Acupuncture</h1>
 			</a>
 		</div>
 		<div class="menu">

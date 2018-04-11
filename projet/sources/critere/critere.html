@@ -1,28 +1,26 @@
-<!doctype html>
-<html lang="fr">
-	<body>
+
 		<div class="corps">
 			<h2>Recherche de pathologie par critère</h2>
-			<form method="post" action="" >
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'meridien')"><img src="sources/images/flecheBas.png" width="25" height="25"> Selection du méridien</span>
+			<form method="post">
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'meridien')"><img src="sources/images/flecheBas.png" width="25" height="25" alt="Fleche"> Selection du méridien</span>
 				<fieldset id="meridien">
 					{foreach from=$list_meridien item=meridien}
 						<label><input type="checkbox" name="{$meridien.nom}">{$meridien.nom}</label>
 					{/foreach}
 				</fieldset>
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'type')"><img src="sources/images/flecheBas.png" width="25" height="25">Selection du type de pathologie</span>
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'type')"><img src="sources/images/flecheBas.png" width="25" height="25" alt="Fleche">Selection du type de pathologie</span>
 				<fieldset id="type">
 					{foreach from=$list_type item=listtype}
 						<label><input type="checkbox" name="{$listtype.type}">{$listtype.type}</label>
 					{/foreach}
 				</fieldset>
-				<span class="deroule" onclick="javascript:toggleDisplay(this,'caract')"><img src="sources/images/flecheBas.png" width="25" height="25">Selection des caractéristiques</span>
+				<span class="deroule" onclick="javascript:toggleDisplay(this,'caract')"><img src="sources/images/flecheBas.png" width="25" height="25" alt="Fleche">Selection des caractéristiques</span>
 				<fieldset id="caract">
 					{foreach from=$list_carac item=listcarac}
 						<label><input type="checkbox" name="{$listcarac.carac}">{$listcarac.carac}</label>
 					{/foreach}
 				</fieldset>
-				<input type="submit" name="valider" class="valider">
+				<input type="submit" name="valider" value="Valider" class="valider">
 			</form>
 		</div>
 	</body>

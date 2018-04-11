@@ -107,7 +107,7 @@ if (isset($pseudo,$pass,$email,$pass2))
 					$_SESSION['login'] = $pseudo;
 					
 					/* A MODIFIER Remplacer le '#' par l'adresse de votre page de destination, sinon ce lien indique la page actuelle.*/
-					$erreur = 'Votre inscription est enregistrée.';
+					$erreur = "<script>alert('Votre inscription est enregistrée.');window.location.replace(\"../connexion\");</script>";
 					/*ou redirection vers une page en cas de succès ex : menu.php*/
 					/*header("Location: menu.php");
 						exit();  */

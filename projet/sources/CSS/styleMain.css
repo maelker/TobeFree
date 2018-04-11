@@ -146,6 +146,12 @@ li{
 	background-color: #dadada
 }
 
+.log input {
+	display: block;
+}
+
+#
+
 @media (max-width: 600px) {
 	.menu li{
 		display: block;
